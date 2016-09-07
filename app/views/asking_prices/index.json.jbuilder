@@ -1,0 +1,1 @@
+json.array! @asking_prices, partial: 'asking_prices/asking_price', as: :asking_price

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Job posting:</strong>
+  <%= @accepted_job.job_posting_id %>
+</p>
+
+<p>
+  <strong>Asking price:</strong>
+  <%= @accepted_job.asking_price_id %>
+</p>
+
+<p>
+  <strong>Completed:</strong>
+  <%= @accepted_job.completed %>
+</p>
+
+<p>
+  <strong>Seller review:</strong>
+  <%= @accepted_job.seller_review %>
+</p>
+
+<p>
+  <strong>Buyer review:</strong>
+  <%= @accepted_job.buyer_review %>
+</p>
+
+<p>
+  <strong>Seller rating:</strong>
+  <%= @accepted_job.seller_rating %>
+</p>
+
+<p>
+  <strong>Buyer rating:</strong>
+  <%= @accepted_job.buyer_rating %>
+</p>
+
+<%= link_to 'Edit', edit_accepted_job_path(@accepted_job) %> |
+<%= link_to 'Back', accepted_jobs_path %>

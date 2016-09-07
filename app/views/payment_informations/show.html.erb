@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Card number:</strong>
+  <%= @payment_information.card_number %>
+</p>
+
+<p>
+  <strong>Cvv code:</strong>
+  <%= @payment_information.cvv_code %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @payment_information.address %>
+</p>
+
+<p>
+  <strong>Zip code:</strong>
+  <%= @payment_information.zip_code %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @payment_information.city %>
+</p>
+
+<p>
+  <strong>State:</strong>
+  <%= @payment_information.state %>
+</p>
+
+<p>
+  <strong>Country:</strong>
+  <%= @payment_information.country %>
+</p>
+
+<%= link_to 'Edit', edit_payment_information_path(@payment_information) %> |
+<%= link_to 'Back', payment_informations_path %>

@@ -1,0 +1,2 @@
+json.extract! payment_information, :id, :card_number, :cvv_code, :address, :zip_code, :city, :state, :country, :created_at, :updated_at
+json.url payment_information_url(payment_information, format: :json)

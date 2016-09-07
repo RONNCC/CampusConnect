@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :accepted_jobs
+  resources :asking_prices
+  resources :skills
+  resources :job_postings
+  resources :payment_informations
+  resources :buyers
+  resources :sellers
+  resources :users
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

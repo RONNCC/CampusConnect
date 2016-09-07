@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  buyer_id: 
+  job_name: MyString
+  description: MyText
+  skills_required: MyText
+  estimated_time: MyString
+
+two:
+  buyer_id: 
+  job_name: MyString
+  description: MyText
+  skills_required: MyText
+  estimated_time: MyString

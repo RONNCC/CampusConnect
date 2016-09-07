@@ -1,0 +1,1 @@
+json.partial! "asking_prices/asking_price", asking_price: @asking_price

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  job_posting_id: 
+  asking_price_id: 
+  completed: 
+  seller_review: MyText
+  buyer_review: MyText
+  seller_rating: 
+  buyer_rating: 
+
+two:
+  job_posting_id: 
+  asking_price_id: 
+  completed: 
+  seller_review: MyText
+  buyer_review: MyText
+  seller_rating: 
+  buyer_rating: 

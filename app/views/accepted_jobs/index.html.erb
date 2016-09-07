@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Accepted Jobs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Job posting</th>
+      <th>Asking price</th>
+      <th>Completed</th>
+      <th>Seller review</th>
+      <th>Buyer review</th>
+      <th>Seller rating</th>
+      <th>Buyer rating</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @accepted_jobs.each do |accepted_job| %>
+      <tr>
+        <td><%= accepted_job.job_posting_id %></td>
+        <td><%= accepted_job.asking_price_id %></td>
+        <td><%= accepted_job.completed %></td>
+        <td><%= accepted_job.seller_review %></td>
+        <td><%= accepted_job.buyer_review %></td>
+        <td><%= accepted_job.seller_rating %></td>
+        <td><%= accepted_job.buyer_rating %></td>
+        <td><%= link_to 'Show', accepted_job %></td>
+        <td><%= link_to 'Edit', edit_accepted_job_path(accepted_job) %></td>
+        <td><%= link_to 'Destroy', accepted_job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Accepted job', new_accepted_job_path %>

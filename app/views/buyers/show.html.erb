@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @buyer.user_id %>
+</p>
+
+<p>
+  <strong>Bio:</strong>
+  <%= @buyer.bio %>
+</p>
+
+<%= link_to 'Edit', edit_buyer_path(@buyer) %> |
+<%= link_to 'Back', buyers_path %>

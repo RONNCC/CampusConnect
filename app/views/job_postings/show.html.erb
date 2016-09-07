@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Buyer:</strong>
+  <%= @job_posting.buyer_id %>
+</p>
+
+<p>
+  <strong>Job name:</strong>
+  <%= @job_posting.job_name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @job_posting.description %>
+</p>
+
+<p>
+  <strong>Skills required:</strong>
+  <%= @job_posting.skills_required %>
+</p>
+
+<p>
+  <strong>Estimated time:</strong>
+  <%= @job_posting.estimated_time %>
+</p>
+
+<%= link_to 'Edit', edit_job_posting_path(@job_posting) %> |
+<%= link_to 'Back', job_postings_path %>
