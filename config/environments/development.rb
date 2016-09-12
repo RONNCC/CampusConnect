@@ -12,7 +12,10 @@ Rails.application.configure do
   # Show full error reports and disable caching.
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
-
+  
+  # Reload classes every time
+  config.reload_classes_only_on_change = false
+  
   # Don't care if the mailer can't send.
   config.action_mailer.raise_delivery_errors = false
 
@@ -38,4 +41,8 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  config.web_console.whitelisted_ips = '128.2.0.0/16', "127.0.0.1", "0.0.0.0"
+  config.web_console.whiny_requests = false
+
 end
