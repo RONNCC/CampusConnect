@@ -18,7 +18,7 @@ class AskingPricesControllerTest < ActionController::TestCase
 
   test "should create asking_price" do
     assert_difference('AskingPrice.count') do
-      post :create, asking_price: { price: @asking_price.price, quantity: @asking_price.quantity, sell_id: @asking_price.sell_id, skill_id: @asking_price.skill_id }
+      post :create, asking_price: { price: @asking_price.price, quantity: @asking_price.quantity, seller_id: @asking_price.seller_id, skill_id: @asking_price.skill_id }
     end
 
     assert_redirected_to asking_price_path(assigns(:asking_price))
@@ -35,7 +35,7 @@ class AskingPricesControllerTest < ActionController::TestCase
   end
 
   test "should update asking_price" do
-    patch :update, id: @asking_price, asking_price: { price: @asking_price.price, quantity: @asking_price.quantity, sell_id: @asking_price.sell_id, skill_id: @asking_price.skill_id }
+    patch :update, id: @asking_price, asking_price: { price: @asking_price.price, quantity: @asking_price.quantity, seller_id: @asking_price.seller_id, skill_id: @asking_price.skill_id }
     assert_redirected_to asking_price_path(assigns(:asking_price))
   end
 

@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  sell_id: 
+  seller_id: 
   skill_id: 
   price: MyString
   quantity: 
 
 two:
-  sell_id: 
+  seller_id: 
   skill_id: 
   price: MyString
   quantity: 

@@ -7,6 +7,15 @@ Rails.application.routes.draw do
   resources :buyers
   resources :sellers
   resources :users
+
+  #custom routes
+  get 'home', to: 'home#index', as: :home
+  get 'buy', to: 'job_postings#new', :as => :buy
+  get 'sell', to: 'asking_prices#new', :as => :sell
+
+  # set the root url
+  root to: 'home#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
