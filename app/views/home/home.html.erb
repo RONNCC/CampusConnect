@@ -72,7 +72,11 @@
                     <div class="header-content">
                         <div class="header-content-inner">
                             <h1>CampusConnect is an app to let you showcase your skills and buy services from others!</h1>
-                            <a href="#download" class="btn btn-outline btn-xl page-scroll">Start Now for Free!</a>
+                            <% if logged_in? %>
+                                <%= link_to "Start Now for Free!", hub_path, :class => "btn btn-outline btn-xl page-scroll" %>
+                            <% else %>
+                                <%= link_to "Start Now for Free!", signup_path, :class => "btn btn-outline btn-xl page-scroll" %>
+                            <% end %>
                         </div>
                     </div>
                 </div>
@@ -179,7 +183,11 @@
         <div class="cta-content">
             <div class="container">
                 <h2>Stop waiting.<br>Start doing.</h2>
-                <a href="#contact" class="btn btn-outline btn-xl page-scroll">Let's Get Started!</a>
+                <% if logged_in? %>
+                    <%= link_to "Let's Get Started!", hub_path, :class => "btn btn-outline btn-xl page-scroll" %>
+                <% else %>
+                    <%= link_to "Let's Get Started!", signup_path, :class => "btn btn-outline btn-xl page-scroll" %>
+                <% end %>
             </div>
         </div>
         <div class="overlay"></div>
