@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/home'
+
   resources :accepted_jobs
   resources :asking_prices
   resources :skills
@@ -20,14 +22,14 @@ Rails.application.routes.draw do
   get 'sell', to: 'asking_prices#new', :as => :sell
 
   # set the root url
-  root to: 'home#index'
+  # root to: 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
-
+  root :to => 'home#home'  
+  
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
