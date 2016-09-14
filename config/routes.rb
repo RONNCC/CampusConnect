@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get 'home/home'
+  # get 'home/home'
 
   resources :accepted_jobs
   resources :asking_prices
@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'logout' => 'sessions#destroy', :as => :logout
 
   #custom routes
+  get 'home', to: 'home#home', as: :home
   get 'hub', to: 'home#index', as: :hub
   get 'buy', to: 'job_postings#new', :as => :buy
   get 'sell', to: 'asking_prices#new', :as => :sell
@@ -28,7 +29,7 @@ Rails.application.routes.draw do
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root :to => 'home#home', as: :home 
+  root :to => 'home#home'
   
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

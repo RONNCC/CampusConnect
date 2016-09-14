@@ -9,6 +9,9 @@ class User < ActiveRecord::Base
   
   #Validations
 
+  ROLES = [['Administrator', :admin], ['Buyer', :buyer], ['Seller', :seller], ['Buyer/Seller', :bser]]
+  PROLES = [['Buyer', :buyer], ['Seller', :seller], ['Buyer/Seller', :bser]]
+
   #Methods
   def self.authenticate(username,password)
     find_by_username(username).try(:authenticate, password)
