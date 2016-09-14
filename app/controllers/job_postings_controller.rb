@@ -25,6 +25,7 @@ class JobPostingsController < ApplicationController
   # POST /job_postings.json
   def create
     @job_posting = JobPosting.new(job_posting_params)
+    @job_posting.buyer_id = current_user.buyer.id
 
     respond_to do |format|
       if @job_posting.save

@@ -1,4 +1,4 @@
-<%= form_for(@asking_price) do |f| %>
+<%= simple_form_for(@asking_price) do |f| %>
   <% if @asking_price.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@asking_price.errors.count, "error") %> prohibited this asking_price from being saved:</h2>
@@ -11,13 +11,13 @@
     </div>
   <% end %>
 
+  <!-- <div class="field">
+    <%# f.label :seller_id %><br>
+    <%# f.text_field :seller_id %>
+  </div> -->
   <div class="field">
-    <%= f.label :seller_id %><br>
-    <%= f.text_field :seller_id %>
-  </div>
-  <div class="field">
-    <%= f.label :skill_id %><br>
-    <%= f.text_field :skill_id %>
+    <%= f.label :skill_id, :label => "Skill" %><br>
+    <%= f.collection_select :skill_id, @skills, :id, lambda{|skill| skill.skill}, prompt: "Select..." %>
   </div>
   <div class="field">
     <%= f.label :price %><br>

@@ -15,6 +15,7 @@ class AskingPricesController < ApplicationController
   # GET /asking_prices/new
   def new
     @asking_price = AskingPrice.new
+    @skills = Skill.all
   end
 
   # GET /asking_prices/1/edit
@@ -25,6 +26,7 @@ class AskingPricesController < ApplicationController
   # POST /asking_prices.json
   def create
     @asking_price = AskingPrice.new(asking_price_params)
+    @asking_price.seller_id = current_user.seller.id
 
     respond_to do |format|
       if @asking_price.save
