@@ -7,6 +7,7 @@
     <thead>
       <tr>
         <th>Job posting</th>
+        <th>Skill(s) Required</th>
         <th>Asking price</th>
         <th>Completed</th>
         <th>Seller review</th>
@@ -21,7 +22,8 @@
       <% @acc_jobs_buy.each do |accepted_job| %>
         <tr>
           <td><%= accepted_job.job_posting.job_name %></td>
-          <td><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s + " : $" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></td>
+          <td><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s %></td>
+          <td><%="$" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></td>
           <td><%= accepted_job.completed == true ? "Yes" : "No" %></td>
           <td><%= (accepted_job.seller_review == nil or accepted_job.seller_review == "") ? "Not Completed" : "Completed" %></td>
           <td><%= (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") ? "Not Completed" : "Completed"%></td>
@@ -48,6 +50,7 @@
     <thead>
       <tr>
         <th>Job posting</th>
+        <th>Skill(s) Required</th>
         <th>Asking price</th>
         <th>Completed</th>
         <th>Seller review</th>
@@ -62,7 +65,8 @@
       <% @acc_jobs_sell.each do |accepted_job| %>
         <tr>
           <td><%= accepted_job.job_posting.job_name %></td>
-          <td><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s + " : $" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></td>
+          <td><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s %></td>
+          <td><%="$" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></td>
           <td><%= accepted_job.completed == true ? "Yes" : "No" %></td>
           <td><%= (accepted_job.seller_review == nil or accepted_job.seller_review == "") ? "Not Completed" : "Completed" %></td>
           <td><%= (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") ? "Not Completed" : "Completed"%></td>
