@@ -35,7 +35,10 @@
 </head>
 
 <body id="page-top">
-
+    <video poster="https://upload.wikimedia.org/wikipedia/commons/6/67/Inside_the_Batad_rice_terraces.jpg" id="bgvid" playsinline autoplay muted loop>
+      <!-- WCAG general accessibility recommendation is that media such as background video play through only once. Loop turned on for the purposes of illustration; if removed, the end of the video will fade in the same way created by pressing the "Pause" button  -->
+        <source src=<%=asset_path "peeps.mp4"%> type="video/mp4"/>
+    </video>
     <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -68,33 +71,37 @@
     <header>
         <div class="container">
             <div class="row">
-                <div class="col-sm-7">
+                <div class="col-md-5"></div>
+                <div class="col-md-7">
                     <div class="header-content">
-                        <div class="header-content-inner">
-                            <h1>CampusConnect is an app to let you showcase your skills and buy services from others!</h1>
-                            <% if logged_in? %>
-                                <%= link_to "Start Now for Free!", hub_path, :class => "btn btn-outline btn-xl page-scroll" %>
-                            <% else %>
-                                <%= link_to "Start Now for Free!", signup_path, :class => "btn btn-outline btn-xl page-scroll" %>
-                            <% end %>
+                        <div id="polina" class="header-content-inner">
+                            <center>
+                                <h1>The app to showcase your skills and buy services from others!</h1>
+                            
+                                <% if logged_in? %>
+                                    <%= link_to "Start Now for Free!", hub_path, :class => "btn btn-outline btn-xl page-scroll" %>
+                                <% else %>
+                                    <%= link_to "Start Now for Free!", signup_path, :class => "btn btn-outline btn-xl page-scroll" %>
+                                <% end %>
+                            </center>
                         </div>
                     </div>
                 </div>
-                <div class="col-sm-5">
-                    <div class="device-container">
-                        <div class="device-mockup iphone6_plus portrait white">
-                            <div class="device">
-                                <div class="screen">
+                <!--<div class="col-sm-5">-->
+                <!--    <div class="device-container">-->
+                <!--        <div class="device-mockup iphone6_plus portrait white">-->
+                <!--            <div class="device">-->
+                <!--                <div class="screen">-->
                                     <!-- Demo image for screen mockup, you can put an image here, some HTML, an animation, video, or anything else! -->
-                                    <img src=<%= image_path "demo-screen-1.jpg" %> class="img-responsive" alt="">
-                                </div>
-                                <div class="button">
+                                    <!--<img src=<%= image_path "demo-screen-1.jpg" %> class="img-responsive" alt="">-->
+                <!--                </div>-->
+                <!--                <div class="button">-->
                                     <!-- You can hook the "home button" to some JavaScript events or just remove it -->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <!--                </div>-->
+                <!--            </div>-->
+                <!--        </div>-->
+                <!--    </div>-->
+                <!--</div>-->
             </div>
         </div>
     </header>
@@ -196,7 +203,7 @@
 
     <section id="contact" class="contact bg-primary">
         <div class="container">
-            <h2>We <i class="fa fa-heart"></i> Contact us on!</h2>
+            <h2>We <i class="fa fa-heart"> U! </i> Contact us on!</h2>
             <ul class="list-inline list-social">
                 <li class="social-twitter">
                     <a href="#"><i class="fa fa-twitter"></i></a>
