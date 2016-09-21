@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   resources :skills
   resources :job_postings
   resources :payment_informations
-  resources :buyers
-  resources :sellers
+  # resources :buyers
+  # resources :sellers
   
   resources :users
   resources :sessions
@@ -21,6 +21,10 @@ Rails.application.routes.draw do
   get 'hub', to: 'home#index', as: :hub
   get 'buy', to: 'job_postings#new', :as => :buy
   get 'sell', to: 'asking_prices#new', :as => :sell
+
+  get 'initiate_job_buy/:jp_id' => 'accepted_jobs#initiate_buy', as: :initiate_job_buy
+  get 'initiate_job_sell/:ap_id' => 'accepted_jobs#initiate_sell', as: :initiate_job_sell
+  get 'make_accepted_job/:jp_id/:ap_id' => 'accepted_jobs#make', as: :make_accepted_job
 
   # set the root url
   # root to: 'home#index'

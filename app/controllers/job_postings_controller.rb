@@ -5,8 +5,8 @@ class JobPostingsController < ApplicationController
   # GET /job_postings.json
   def index
     @job_postings = JobPosting.all
-    @your_jp = JobPosting.for_user(current_user.buyer.id)
-    @other_jp = JobPosting.not_for_user(current_user.buyer.id)
+    @your_jp = JobPosting.open_for_user(current_user.id)
+    @other_jp = JobPosting.open_not_for_user(current_user.id)
   end
 
   # GET /job_postings/1
@@ -27,7 +27,7 @@ class JobPostingsController < ApplicationController
   # POST /job_postings.json
   def create
     @job_posting = JobPosting.new(job_posting_params)
-    @job_posting.buyer_id = current_user.buyer.id
+    @job_posting.user_id = current_user.id
 
     respond_to do |format|
       if @job_posting.save

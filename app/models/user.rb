@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
   has_secure_password
   
   #Relationship Validations
-  has_one :seller
-  has_one :buyer
+  has_many :job_postings
+  has_many :skills
   
   #Validations
 
@@ -15,6 +15,10 @@ class User < ActiveRecord::Base
   #Methods
   def self.authenticate(username,password)
     find_by_username(username).try(:authenticate, password)
+  end
+
+  def name
+    self.first_name + " " + self.last_name
   end
 
 end

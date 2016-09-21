@@ -3,7 +3,7 @@
 
 <h1>Your Job Postings</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <!-- <th>Buyer</th> -->
@@ -23,7 +23,7 @@
         <td><%= job_posting.description %></td>
         <td><%= job_posting.skills_required %></td>
         <td><%= job_posting.estimated_time %></td>
-        <td><%= link_to 'Show', job_posting %></td>
+        <td><%= link_to 'Initaite Job', initiate_job_buy_path(job_posting) %></td>
         <td><%= link_to 'Edit', edit_job_posting_path(job_posting) %></td>
         <td><%= link_to 'Destroy', job_posting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
@@ -35,7 +35,7 @@
 
 <h1>Other Job Postings</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <!-- <th>Buyer</th> -->

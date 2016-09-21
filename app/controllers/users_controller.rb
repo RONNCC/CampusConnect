@@ -26,16 +26,16 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.active = true
-    @buyer = Buyer.new
-    @seller = Seller.new
+    # @buyer = Buyer.new
+    # @seller = Seller.new
 
     respond_to do |format|
       if @user.save
         session[:user_id] = @user.id
-        @buyer.user_id = @user.id
-        @buyer.save
-        @seller.user_id = @user.id
-        @seller.save
+        # @buyer.user_id = @user.id
+        # @buyer.save
+        # @seller.user_id = @user.id
+        # @seller.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render action: 'show', status: :created, location: @user }
       else
@@ -77,6 +77,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation, :role, :first_name, :last_name, :phone, :email)
+      params.require(:user).permit(:username, :password, :password_confirmation, :role, :first_name, :last_name, :phone, :email, :buyer_bio, :user_bio)
     end
 end

@@ -61,6 +61,32 @@ class AcceptedJobsController < ApplicationController
     end
   end
 
+  def initiate_buy
+    @jp = JobPosting.find(params[:jp_id])
+    @ny_asking_prices = AskingPrice.open_not_for_user(current_user.id)
+  end
+
+  def make
+    @accepted_job = AcceptedJob.new()
+    @accepted_job.job_posting_id = params[:jp_id]
+    @accepted_job.asking_price_id = params[:ap_id]
+
+    respond_to do |format|
+      if @accepted_job.save
+        format.html { redirect_to accepted_jobs_path, notice: 'Accepted job was successfully created.' }
+        format.json { render :show, status: :created, location: @accepted_job }
+      else
+        format.html { render :new }
+        format.json { render json: @accepted_job.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def initiate_sell
+    @ap = AskingPrice.find(params[:ap_id])
+    @ny_job_postings = JobPosting.open_not_for_user(current_user.id)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_accepted_job

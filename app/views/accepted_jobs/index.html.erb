@@ -2,7 +2,7 @@
 
 <h1>Listing Accepted Jobs</h1>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Job posting</th>
@@ -19,8 +19,8 @@
   <tbody>
     <% @accepted_jobs.each do |accepted_job| %>
       <tr>
-        <td><%= accepted_job.job_posting_id %></td>
-        <td><%= accepted_job.asking_price_id %></td>
+        <td><%= accepted_job.job_posting.job_name %></td>
+        <td><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s + " : $" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></td>
         <td><%= accepted_job.completed %></td>
         <td><%= accepted_job.seller_review %></td>
         <td><%= accepted_job.buyer_review %></td>
