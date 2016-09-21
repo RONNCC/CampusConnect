@@ -1,0 +1,14 @@
+<center>
+  <h3>Please review the provider of your service<!-- , Username: <i><%= @aj.asking_price.skill.user.username %></i> --></h3>
+  <br><br>
+
+
+<%= form_tag(review_update_provider_path, :method => "post") do %>
+  <%= label_tag(:review, "Review:") %>
+  <%= text_field_tag(:review) %><br>
+  <%= label_tag(:rating, "Rating (From 1 to 5):") %>
+  <%= text_field_tag(:rating) %><br>
+  <%= submit_tag("Submit Review") %>
+<% end %>
+
+</center>

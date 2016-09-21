@@ -26,6 +26,11 @@ Rails.application.routes.draw do
   get 'initiate_job_sell/:ap_id' => 'accepted_jobs#initiate_sell', as: :initiate_job_sell
   get 'make_accepted_job/:jp_id/:ap_id' => 'accepted_jobs#make', as: :make_accepted_job
 
+  get 'review_provider/:aj_id' => 'accepted_jobs#review_provider', as: :review_provider
+  post 'review_update_provider/:aj_id/' => 'accepted_jobs#review_update_provider', as: :review_update_provider
+  get 'review_client/:aj_id' => 'accepted_jobs#review_client', as: :review_client
+  post 'review_update_client/:aj_id/' => 'accepted_jobs#review_update_client', as: :review_update_client
+
   # set the root url
   # root to: 'home#index'
 
