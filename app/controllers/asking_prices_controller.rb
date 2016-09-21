@@ -20,6 +20,7 @@ class AskingPricesController < ApplicationController
 
   # GET /asking_prices/1/edit
   def edit
+    @skills = Skill.all
   end
 
   # POST /asking_prices

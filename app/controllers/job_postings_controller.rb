@@ -5,6 +5,8 @@ class JobPostingsController < ApplicationController
   # GET /job_postings.json
   def index
     @job_postings = JobPosting.all
+    @your_jp = JobPosting.for_user(current_user.buyer.id)
+    @other_jp = JobPosting.not_for_user(current_user.buyer.id)
   end
 
   # GET /job_postings/1
