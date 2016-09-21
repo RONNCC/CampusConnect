@@ -1,0 +1,36 @@
+<h1>Here are the current job offerings</h1>
+<br>
+<table class="table">
+  <thead>
+    <tr>
+      <!-- <th>Buyer</th> -->
+      <th>Skill Offered</th>
+      <th>Description</th>
+      <th>Price</th>
+      <th>Quantity</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ny_asking_prices.each do |ap| %>
+      <tr>
+        <!-- <td><%# job_posting.buyer_id %></td> -->
+        <td><%= ap.skill.skill %></td>
+        <td><%= ap.skill.description %></td>
+        <td><%= ap.price %></td>
+        <td><%= ap.quantity %></td>
+        <td><%= link_to 'Select Job Offering', make_accepted_job_path(@jp,ap) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+
+<h4>Your Needed Job</h4>
+<%= "Name: " + (@jp.job_name === "" ? "No Name" : @jp.job_name) %><br>
+<%= "Description: " + (@jp.description === "" ? "No description" : @jp.description) %><br>
+<%= "Skills Required: " + (@jp.skills_required === "" ? "No skills required" : @jp.skills_required) %><br>
+<%= "Estimated Time Required: " + (@jp.estimated_time === "" ? "No Estimated Time Required" : @jp.estimated_time) %><br>

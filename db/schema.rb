@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160914035132) do
+ActiveRecord::Schema.define(version: 20160921092714) do
 
   create_table "accepted_jobs", force: :cascade do |t|
     t.integer  "job_posting_id"
@@ -26,7 +26,6 @@ ActiveRecord::Schema.define(version: 20160914035132) do
   end
 
   create_table "asking_prices", force: :cascade do |t|
-    t.integer  "seller_id"
     t.integer  "skill_id"
     t.string   "price"
     t.integer  "quantity"
@@ -34,21 +33,14 @@ ActiveRecord::Schema.define(version: 20160914035132) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "buyers", force: :cascade do |t|
-    t.integer  "user_id"
-    t.text     "bio"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "job_postings", force: :cascade do |t|
-    t.integer  "buyer_id"
     t.string   "job_name"
     t.text     "description"
     t.text     "skills_required"
     t.string   "estimated_time"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.integer  "user_id"
   end
 
   create_table "payment_informations", force: :cascade do |t|
@@ -64,19 +56,12 @@ ActiveRecord::Schema.define(version: 20160914035132) do
     t.datetime "updated_at",  null: false
   end
 
-  create_table "sellers", force: :cascade do |t|
-    t.integer  "user_id"
-    t.text     "bio"
-    t.string   "location"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "skills", force: :cascade do |t|
     t.string   "skill"
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -90,6 +75,8 @@ ActiveRecord::Schema.define(version: 20160914035132) do
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
     t.boolean  "active"
+    t.text     "buyer_bio"
+    t.text     "seller_bio"
   end
 
 end

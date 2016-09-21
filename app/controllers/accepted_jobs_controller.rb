@@ -5,6 +5,8 @@ class AcceptedJobsController < ApplicationController
   # GET /accepted_jobs.json
   def index
     @accepted_jobs = AcceptedJob.all
+    @acc_jobs_buy = AcceptedJob.for_user_buyer(current_user.id)
+    @acc_jobs_sell = AcceptedJob.for_user_seller(current_user.id)
   end
 
   # GET /accepted_jobs/1
@@ -58,6 +60,72 @@ class AcceptedJobsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to accepted_jobs_url, notice: 'Accepted job was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def initiate_buy
+    @jp = JobPosting.find(params[:jp_id])
+    @ny_asking_prices = AskingPrice.open_not_for_user(current_user.id)
+  end
+
+  def make
+    @accepted_job = AcceptedJob.new()
+    @accepted_job.job_posting_id = params[:jp_id]
+    @accepted_job.asking_price_id = params[:ap_id]
+
+    respond_to do |format|
+      if @accepted_job.save
+        format.html { redirect_to accepted_jobs_path, notice: 'Accepted job was successfully created.' }
+        format.json { render :show, status: :created, location: @accepted_job }
+      else
+        format.html { render :new }
+        format.json { render json: @accepted_job.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def initiate_sell
+    @ap = AskingPrice.find(params[:ap_id])
+    @ny_job_postings = JobPosting.open_not_for_user(current_user.id)
+  end
+
+  def review_provider
+    @aj = AcceptedJob.find(params[:aj_id])
+  end
+
+  def review_update_provider
+    @aj = AcceptedJob.find(params[:aj_id])
+    @aj.seller_review = params[:review]
+    @aj.seller_rating = params[:rating]
+
+    respond_to do |format|
+      if @aj.save
+        format.html { redirect_to accepted_jobs_path, notice: 'Thank you for reviewing your experience With CampusConnect!' }
+        format.json { render :show, status: :created, location: @accepted_job }
+      else
+        format.html { render :new }
+        format.json { render json: @accepted_job.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  def review_client
+    @aj = AcceptedJob.find(params[:aj_id])
+  end
+
+  def review_update_client
+    @aj = AcceptedJob.find(params[:aj_id])
+    @aj.buyer_review = params[:review]
+    @aj.buyer_rating = params[:rating]
+
+    respond_to do |format|
+      if @aj.save
+        format.html { redirect_to accepted_jobs_path, notice: 'Thank you for reviewing your experience With CampusConnect!' }
+        format.json { render :show, status: :created, location: @accepted_job }
+      else
+        format.html { render :new }
+        format.json { render json: @accepted_job.errors, status: :unprocessable_entity }
+      end
     end
   end
 
