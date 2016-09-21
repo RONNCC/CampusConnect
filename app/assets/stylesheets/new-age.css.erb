@@ -1,8 +1,73 @@
 /*!
- * Start Bootstrap - New Age v3.3.7 (http://startbootstrap.com/template-overviews/new-age)
+ * Modified from Start Bootstrap - New Age v3.3.7 (http://startbootstrap.com/template-overviews/new-age)
  * Copyright 2013-2016 Start Bootstrap
  * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE)
  */
+
+a:hover{
+  background:rgba(0,0,0,0.9);
+}
+@media screen and (max-width: 500px) { 
+  div{width:70%;} 
+}
+@media screen and (max-device-width: 800px) {
+  html { background: url(//demosthenes.info/assets/images/polina.jpg) #000 no-repeat center center fixed; }
+  #bgvid { display: none; }
+}
+
+
+video { 
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: -100;
+    transform: translateX(-50%) translateY(-50%);
+ background: url('//demosthenes.info/assets/images/polina.jpg') no-repeat;
+  background-size: cover;
+  transition: 1s opacity;
+}
+.stopfade { 
+   opacity: .5;
+}
+
+#polina { 
+  font-family: Agenda-Light, Agenda Light, Agenda, Arial Narrow, sans-serif;
+  font-weight:100; 
+  background: rgba(0,0,0,0.3);
+  color: white;
+  padding: 2rem;
+  width: 90%;
+  margin-left:2rem;
+  float: right;
+  font-size: 1.2rem;
+}
+/*h1 {*/
+/*  font-size: 3rem;*/
+/*  text-transform: uppercase;*/
+/*  margin-top: 0;*/
+/*  letter-spacing: .3rem;*/
+/*}*/
+#polina button { 
+  display: block;
+  width: 80%;
+  padding: .4rem;
+  border: none; 
+  margin: 1rem auto; 
+  font-size: 1.3rem;
+  background: rgba(255,255,255,0.23);
+  color: #fff;
+  border-radius: 3px; 
+  cursor: pointer;
+  transition: .3s background;
+}
+#polina button:hover { 
+   background: rgba(0,0,0,0.5);
+}
+
 .heading-font {
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
@@ -28,7 +93,7 @@ a {
   -webkit-transition: all 0.35s;
   -moz-transition: all 0.35s;
   transition: all 0.35s;
-  color: #fdcc52;
+  /*color: #fdcc52;*/
 }
 a:hover,
 a:focus {
@@ -58,7 +123,19 @@ p {
   line-height: 1.5;
   margin-bottom: 20px;
 }
+
+/* navbar */
 .navbar-default {
+    background-color: #F8F8F8;
+    border-color: #E7E7E7;
+}
+/* title */
+.navbar-default .navbar-brand {
+    color: #777;
+}
+
+.navbar-default {
+  
   background-color: white;
   border-color: rgba(34, 34, 34, 0.05);
   -webkit-transition: all 0.35s;
@@ -72,7 +149,7 @@ p {
   font-family: 'Catamaran', 'Helvetica', 'Arial', 'sans-serif';
   font-weight: 200;
   letter-spacing: 1px;
-  color: #fdcc52;
+  /*color: #fdcc52;*/
 }
 .navbar-default .navbar-header .navbar-brand:hover,
 .navbar-default .navbar-header .navbar-brand:focus {
@@ -91,15 +168,15 @@ p {
 }
 .navbar-default .nav > li > a,
 .navbar-default .nav > li > a:focus {
-  color: #222222;
+  /*color: #222222;*/
 }
 .navbar-default .nav > li > a:hover,
 .navbar-default .nav > li > a:focus:hover {
-  color: #fdcc52;
+  /*color: #fdcc52;*/
 }
 .navbar-default .nav > li.active > a,
 .navbar-default .nav > li.active > a:focus {
-  color: #fdcc52 !important;
+  /*color: #fdcc52 !important;*/
   background-color: transparent;
 }
 .navbar-default .nav > li.active > a:hover,
@@ -112,7 +189,7 @@ p {
     border-color: transparent;
   }
   .navbar-default .navbar-header .navbar-brand {
-    color: rgba(255, 255, 255, 0.7);
+    /*color: rgba(255, 255, 255, 0.7);*/
   }
   .navbar-default .navbar-header .navbar-brand:hover,
   .navbar-default .navbar-header .navbar-brand:focus {
@@ -120,12 +197,18 @@ p {
   }
   .navbar-default .nav > li > a,
   .navbar-default .nav > li > a:focus {
-    color: rgba(255, 255, 255, 0.7);
+    /*color: rgba(255, 255, 255, 0.7);*/
   }
   .navbar-default .nav > li > a:hover,
   .navbar-default .nav > li > a:focus:hover {
     color: white;
   }
+  
+  .navbar-default.affix-top{
+    background-color: white;
+    color:#F0F0F0;
+  }
+  
   .navbar-default.affix {
     background-color: white;
     border-color: rgba(34, 34, 34, 0.1);
@@ -135,7 +218,7 @@ p {
   }
   .navbar-default.affix .navbar-header .navbar-brand:hover,
   .navbar-default.affix .navbar-header .navbar-brand:focus {
-    color: #fdcc52;
+    /*color: #fdcc52;*/
   }
   .navbar-default.affix .nav > li > a,
   .navbar-default.affix .nav > li > a:focus {
@@ -143,7 +226,7 @@ p {
   }
   .navbar-default.affix .nav > li > a:hover,
   .navbar-default.affix .nav > li > a:focus:hover {
-    color: #fdcc52;
+    /*color: #fdcc52;*/
   }
 }
 header {
@@ -151,11 +234,11 @@ header {
   width: 100%;
   min-height: auto;
   overflow-y: hidden;
-  background: url( <%= asset_path 'bg-pattern.png' %>), #7b4397;
+  /*background: url( <%= asset_path 'bg-pattern.png' %>), #7b4397;*/
   /* fallback for old browsers */
-  background: url(<%= asset_path 'bg-pattern.png' %>), -webkit-linear-gradient(to left, #7b4397, #dc2430);
+  /*background: url(<%= asset_path 'bg-pattern.png' %>), -webkit-linear-gradient(to left, #7b4397, #dc2430);*/
   /* Chrome 10-25, Safari 5.1-6 */
-  background: url(<%= asset_path 'bg-pattern.png' %>), linear-gradient(to left, #7b4397, #dc2430);
+  /*background: url(<%= asset_path 'bg-pattern.png' %>), linear-gradient(to left, #7b4397, #dc2430);*/
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
   color: white;
 }
@@ -282,6 +365,11 @@ section.features .feature-item {
 section.features .feature-item h3 {
   font-size: 30px;
 }
+
+section.features {
+  background: #f5f5f5;
+}
+
 section.features .feature-item i {
   font-size: 80px;
   background: -webkit-linear-gradient(to left, #7b4397, #dc2430);
@@ -393,12 +481,12 @@ footer ul li a.active {
   text-decoration: none;
 }
 .bg-primary {
-  background: #fdcc52;
-  background: -webkit-linear-gradient(#fdcc52, #fdc539);
-  background: linear-gradient(#fdcc52, #fdc539);
+  background: #034F84;
+  /*background: -webkit-linear-gradient(#fdcc52, #fdc539);*/
+  /*background: linear-gradient(#fdcc52, #fdc539);*/
 }
 .text-primary {
-  color: #fdcc52;
+  /*color: #fdcc52;*/
 }
 .no-gutter > [class*='col-'] {
   padding-right: 0;
@@ -414,8 +502,8 @@ footer ul li a.active {
 .btn-outline:active,
 .btn-outline.active {
   color: white;
-  background-color: #fdcc52;
-  border-color: #fdcc52;
+  /*background-color: #fdcc52;*/
+  /*border-color: #fdcc52;*/
 }
 .btn {
   font-family: 'Lato', 'Helvetica', 'Arial', 'sans-serif';
