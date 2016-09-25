@@ -4,7 +4,7 @@ class HomeController < ApplicationController
   end
 
   def home
-    @app_page=false
+    @app_page="Home"
   end
 
 end
