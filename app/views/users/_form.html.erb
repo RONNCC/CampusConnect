@@ -10,14 +10,13 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  <div class="field"> <br>
     <%= f.label :username %><br>
-    <%= f.text_field :username %>
+    <%= f.text_field :username, :required => true %>
   </div>
   <!-- <div class="row"> -->
     <!-- <div class="col-sm-12"> -->
-      <div class="field">
+      <div class="field"> <br>
         <%= f.label :password %><br>
         <%= f.text_field :password %>
       </div>
@@ -25,7 +24,7 @@
   <!-- </div> -->
   <!-- <div class="row"> -->
     <!-- <div class="col-sm-12"> -->
-      <div class="field">
+      <div class="field"> <br>
         <%= f.label :password_confirmation %><br>
         <%= f.text_field :password_confirmation %>
       </div>
@@ -35,23 +34,24 @@
     <%# f.label :role %><br>
     <%# f.input_field :role, collection: User::PROLES, prompt: "Please Select..." %>
   </div> -->
-  <div class="field">
+  <div class="field"> <br>
     <%= f.label :first_name %><br>
-    <%= f.text_field :first_name %>
+    <%= f.text_field :first_name, :required => true %>
   </div>
-  <div class="field">
+  <div class="field"> <br>
     <%= f.label :last_name %><br>
     <%= f.text_field :last_name %>
   </div>
+  <div class="field"> <br>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </div> <br>
   <div class="field">
     <%= f.label :phone %><br>
     <%= f.text_field :phone %>
   </div>
-  <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </div>
+  <br>
   <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.button :submit, "Create Account", class: "btn btn-success"%> <br>
+
 <% end %>
