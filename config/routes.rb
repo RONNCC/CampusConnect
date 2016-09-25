@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   get 'review_client/:aj_id' => 'accepted_jobs#review_client', as: :review_client
   post 'review_update_client/:aj_id/' => 'accepted_jobs#review_update_client', as: :review_update_client
 
+  #Static Pages
+  get "/pages/:page" => "pages#show"
+
   # set the root url
   # root to: 'home#index'
 
