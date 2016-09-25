@@ -7,7 +7,7 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <%= render :partial => "partials/nav" if @app_page %>
+  <%= render :partial => "partials/nav" if @app_page != "Home" %>
   <%= yield %>
 
   <br><br>
