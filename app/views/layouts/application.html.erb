@@ -1,23 +1,15 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>CampusConnect</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <%= render :partial => "partials/nav" if @app_page != "Home" %>
-  <%= yield %>
-
-  <br><br>
-
-  <% if logged_in? %>
-    <%= link_to 'Logout', logout_path %>
-    <br>[<%= current_user.username %>:<%= current_user.role %>]
-  <% else %>
-    <%= link_to 'Login', login_path %>
-  <% end %>
-</body>
-
+  <head>
+    <title>CampusConnect</title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <%= render :partial => "partials/nav" if @app_page != "Home" %>
+    <%= yield %>
+  </body>
+  <br>
+  <%= render :partial => "partials/footer" if @app_page != "Home" %>
 </html>
