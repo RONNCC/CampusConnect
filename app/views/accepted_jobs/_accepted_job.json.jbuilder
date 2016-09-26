@@ -1,2 +1,2 @@
-json.extract! accepted_job, :id, :job_posting_id, :asking_price_id, :completed, :seller_review, :buyer_review, :seller_rating, :buyer_rating, :created_at, :updated_at
+json.extract! accepted_job, :id, :job_posting_id, :asking_price_id, :buyer_completed, :seller_completed, :seller_review, :buyer_review, :seller_rating, :buyer_rating, :created_at, :updated_at
 json.url accepted_job_url(accepted_job, format: :json)
