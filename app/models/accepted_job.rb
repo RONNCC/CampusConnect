@@ -5,7 +5,7 @@ class AcceptedJob < ActiveRecord::Base
   belongs_to :job_posting
 
   #Scopes
-  scope :open_not_for_user, ->(uid) { joins("left outer join accepted_jobs on job_postings.id = accepted_jobs.job_posting_id").where("job_postings.user_id != ? and accepted_jobs.id IS NULL", uid) }
+  # scope :open_not_for_user, ->(uid) { joins("left outer join accepted_jobs on job_postings.id = accepted_jobs.job_posting_id").where("job_postings.user_id != ? and accepted_jobs.id IS NULL", uid) }
   scope :for_user_buyer, -> (uid) {joins(:job_posting => :user).where("users.id = ?", uid)}
   scope :for_user_seller, -> (uid) {joins(:asking_price => {:skill => :user}).where("users.id = ?", uid)}
 
