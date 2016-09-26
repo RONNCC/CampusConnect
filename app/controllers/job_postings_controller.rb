@@ -5,8 +5,14 @@ class JobPostingsController < ApplicationController
   # GET /job_postings.json
   def index
     @job_postings = JobPosting.all
-    @your_jp = JobPosting.open_for_user(current_user.id)
-    @other_jp = JobPosting.open_not_for_user(current_user.id)
+    if logged_in?
+      @your_jp = JobPosting.open_for_user(current_user.id)
+      @other_jp = JobPosting.open_not_for_user(current_user.id)
+    else
+      jp1 = JobPosting.open_for_user(1).to_a
+      jp2 = JobPosting.open_not_for_user(1).to_a
+      @all_jp = jp1 + jp2
+    end
   end
 
   # GET /job_postings/1
