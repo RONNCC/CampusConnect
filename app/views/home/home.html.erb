@@ -1,3 +1,47 @@
+<% content_for :footer do %>
+    <footer>
+         <section id="contact" class="contact bg-primary">
+        <div class="container">
+            <h2><i class="fa fa-heart"></i> Connect with us</h2>
+            <ul class="list-inline list-social">
+                <li class="social-twitter">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="social-facebook">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li class="social-google-plus">
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                </li>
+                    <li class="">
+                    <a href="#"><img src="<%=image_path "tinder-icon.png" %>" width=60 height=60 /></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+        <div class="container">
+            <p>&copy; 2016 CampusConnect. Only Two Rights Reserved.</p>
+            <ul class="list-inline">
+                <li>
+                    <a href="/pages/privacy">Privacy</a>
+                </li>
+                <li>
+                    <a href="/pages/terms">Terms</a>
+                </li>
+                <li>
+                    <a href="/pages/faq">FAQ</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
+
+   
+    <!-- Theme JavaScript -->
+    <script src=<%= javascript_path "new-age.js"%> ></script>
+<% end %>
+
+
 
 <!-- started /w code from https://raw.githubusercontent.com/BlackrockDigital/startbootstrap-new-age/master/index.html-->
 <!DOCTYPE html>
@@ -11,7 +55,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>New Age - Start Bootstrap Theme</title>
+    <title>CampusConnect</title>
 
 
 
@@ -46,7 +90,9 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/dashboard">CampusConnect</a>
+                <!--<a class="navbar-brand page-scroll" href="/dashboard">CampusConnect</a>-->
+                <a class="navbar-brand page-scroll" style="font-size:20px;">CampusConnect</a>
+
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -116,7 +162,8 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2">
                     <h2 class="section-heading">Enhance Your Productivity or Make Some Money</h2>
-                    <p>Our app is available on desktop any mobile device! Download now or <a href="/signup">Sign Up.</a></p>
+                    <p>Our app is available on desktop any mobile device! Download now or <a href="/signup" >Sign Up.</a></p>
+                    <br>
                     <div class="badges">
                         <a class="badge-link" href="#"><img src=<%= image_path "google-play-badge.svg" %> alt=""></a>
                         <a class="badge-link" href="#"><img src=<%= image_path "app-store-badge.svg" %> alt=""></a>
@@ -199,7 +246,7 @@
     <section class="cta">
         <div class="cta-content">
             <div class="container">
-                <h2>Stop waiting.<br>Start doing.</h2>
+                <h2>Stop waiting<br>Start doing</h2>
                 <% if logged_in? %>
                     <%= link_to "Let's Get Started!", dashboard_path, :class => "btn btn-outline btn-xl page-scroll" %>
                 <% else %>
@@ -209,46 +256,6 @@
         </div>
         <div class="overlay"></div>
     </section>
-
-
-    <section id="contact" class="contact bg-primary">
-        <div class="container">
-            <h2><i class="fa fa-heart"></i> Contact us on:</h2>
-            <ul class="list-inline list-social">
-                <li class="social-twitter">
-                    <a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li class="social-facebook">
-                    <a href="#"><i class="fa fa-facebook"></i></a>
-                </li>
-                <li class="social-google-plus">
-                    <a href="#"><i class="fa fa-google-plus"></i></a>
-                </li>
-            </ul>
-        </div>
-    </section>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2016 CampusConnect. Only Two Rights Reserved.</p>
-            <ul class="list-inline">
-                <li>
-                    <a href="/pages/privacy">Privacy</a>
-                </li>
-                <li>
-                    <a href="/pages/terms">Terms</a>
-                </li>
-                <li>
-                    <a href="/pages/faq">FAQ</a>
-                </li>
-            </ul>
-        </div>
-    </footer>
-
-   
-    <!-- Theme JavaScript -->
-    <script src=<%= javascript_path "new-age.js"%> ></script>
-
 </body>
-
 </html>
+
