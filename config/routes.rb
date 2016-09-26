@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 
   #custom routes
   get 'home', to: 'home#home', as: :home
-  get 'hub', to: 'home#index', as: :hub
+  get 'dashboard', to: 'home#index', as: :dashboard
   get 'buy', to: 'job_postings#new', :as => :buy
   get 'sell', to: 'asking_prices#new', :as => :sell
 
