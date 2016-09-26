@@ -10,55 +10,67 @@
     </div>
   <% end %>
   
-  <div class="field"> <br>
-    <%= f.label :username %>
-    <%= f.input_field :username %>
-    <%= f.hint 'No special characters, please!' %>
-    <%= f.error :username, id: 'user_name_error' %>
-  </div>
-  
-  <div class="field"> <br>   
-    <%= f.label :password %>
-    <%= f.input_field :password %>
-    <%= f.hint 'Cannot be less than 4 characters.' %>
-    <%= f.error :password, id: 'password_error' %>
-  </div>
-
-  <div class="field"> <br>
-    <%= f.label :password_confirmation %>
-    <%= f.input_field :password_confirmation %>
-    <%= f.hint 'Must match password entered.' %>
-    <%= f.error :password_confirmation, id: 'password_confirmation_error' %>
-  </div>
-    
-  <!-- <div class="field">
-    <%# f.label :role %><br>
-    <%# f.input_field :role, collection: User::PROLES, prompt: "Please Select..." %>
-  </div> -->
-  <div class="field"> <br>
-    <%= f.label :first_name %>
-    <%= f.input_field :first_name %>
-    <%= f.error :first_name, id: 'first_name_error' %>
-  </div>
-  
-  <div class="field"> <br>
-    <%= f.label :last_name %>
-    <%= f.input_field :last_name %>
-    <%= f.hint 'Names help make transactions easier.' %>
-    <%= f.error :last_name, id: 'last_name_error' %>
-  </div>
-  
-  <div class="field"> <br>
-    <%= f.label :email %>
-    <%= f.input_field :email, placeholder: "example@email.com" %>
-    <%= f.hint 'Primary method of communicating with others/receiving notifications.' %>
-    <%= f.error :email, id: 'email_error' %>
-  </div> <br>
   <div class="field">
+    <center>
+    <TABLE class="table" style="width:400px">
+      <TR><TD>
+            <%= f.label :username %><br>
+            <%= f.hint 'No special characters, please!' %>
+          </TD><TD>
+            <%= f.input_field :username %>
+            <%= f.error :username, id: 'user_name_error' %>
+          </TD>
+      </TR>
+      <TR><TD>
+            <%= f.label :password %><br>
+            <%= f.hint 'Cannot be less than 4 characters.' %>
+          </TD><TD>
+            <%= f.input_field :password %>
+            <%= f.error :password, id: 'password_error' %>
+          </TD>
+      </TR>
+      <TR><TD>
+           <%= f.label :password_confirmation %>
+            <%= f.hint 'Must match password entered.' %>
+          </TD><TD>
+            <%= f.input_field :password_confirmation %>
+            <%= f.error :password_confirmation, id: 'password_confirmation_error' %>
+          </TD>
+      </TR>
+      <TR><TD>
+        <%= f.label :first_name %>
+        <%= f.hint 'Must be at least 3 characters' %>
+      </TD><TD>
+        <%= f.input_field :first_name %>
+        <%= f.error :first_name, id: 'first_name_error' %>
+      </TD>
+      </TR>
+      <TR><TD>
+    <%= f.label :last_name %>
+    <%= f.hint 'Names help make transactions easier.' %>
+      </TD><TD>
+    <%= f.input_field :last_name %>
+    <%= f.error :last_name, id: 'last_name_error' %>
+      </TD>
+      <TR><TD>
+    <%= f.label :email %>
+    <%= f.hint 'Primary method of communicating with others/receiving notifications.' %>
+      </TD><TD>
+    <%= f.input_field :email, placeholder: "example@email.com" %>
+    <%= f.error :email, id: 'email_error' %>
+      </TD>
+      <TR><TD>
     <%= f.label :phone %>
+        <%= f.hint 'Optional. Allows for text notifications and alternative contact methods.' %>
+
+      </TD><TD>
     <%= f.input_field :phone, placeholder: "999-999-9999" %>
-    <%= f.hint 'Optional. Allows for text notifications and alternative contact methods.' %>
     <%= f.error :phone, id: 'phone_error' %>
+      </TD>
+      </TR>
+      
+    </TABLE>
+    </center>
   </div>
   
   <br> 

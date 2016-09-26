@@ -1,67 +1,99 @@
 <center>
 <p id="notice"><%= notice %></p>
+<% if logged_in? %>
+  <h1>Your Job Postings</h1>
 
-<h1>Your Job Postings</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <!-- <th>Buyer</th> -->
-      <th>Job name</th>
-      <th>Description</th>
-      <th>Skills required</th>
-      <th>Estimated time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @your_jp.each do |job_posting| %>
+  <table class="table">
+    <thead>
       <tr>
-        <!-- <td><%# job_posting.buyer_id %></td> -->
-        <td><%= job_posting.job_name %></td>
-        <td><%= job_posting.description %></td>
-        <td><%= job_posting.skills_required %></td>
-        <td><%= job_posting.estimated_time %></td>
-        <td><%= link_to 'Initiate Job', initiate_job_buy_path(job_posting) %></td>
-        <td><%= link_to 'Edit', edit_job_posting_path(job_posting) %></td>
-        <td><%= link_to 'Destroy', job_posting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <!-- <th>Buyer</th> -->
+        <th>Job name</th>
+        <th>Description</th>
+        <th>Skills required</th>
+        <th>Estimated time</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @your_jp.each do |job_posting| %>
+        <tr>
+          <!-- <td><%# job_posting.buyer_id %></td> -->
+          <td><%= job_posting.job_name %></td>
+          <td><%= job_posting.description %></td>
+          <td><%= job_posting.skills_required %></td>
+          <td><%= job_posting.estimated_time %></td>
+          <td><%= link_to 'Initaite Job', initiate_job_buy_path(job_posting) %></td>
+          <td><%= link_to 'Edit', edit_job_posting_path(job_posting) %></td>
+          <td><%= link_to 'Destroy', job_posting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<h1>Other Job Postings</h1>
+  <br>
 
-<table class="table">
-  <thead>
-    <tr>
-      <!-- <th>Buyer</th> -->
-      <th>Job name</th>
-      <th>Description</th>
-      <th>Skills required</th>
-      <th>Estimated time</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+  <h1>Other Job Postings</h1>
 
-  <tbody>
-    <% @other_jp.each do |job_posting| %>
+  <table class="table">
+    <thead>
       <tr>
-        <!-- <td><%# job_posting.buyer_id %></td> -->
-        <td><%= job_posting.job_name %></td>
-        <td><%= job_posting.description %></td>
-        <td><%= job_posting.skills_required %></td>
-        <td><%= job_posting.estimated_time %></td>
-        <td><%= link_to 'Show', job_posting %></td>
+        <!-- <th>Buyer</th> -->
+        <th>Job name</th>
+        <th>Description</th>
+        <th>Skills required</th>
+        <th>Estimated time</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @other_jp.each do |job_posting| %>
+        <tr>
+          <!-- <td><%# job_posting.buyer_id %></td> -->
+          <td><%= job_posting.job_name %></td>
+          <td><%= job_posting.description %></td>
+          <td><%= job_posting.skills_required %></td>
+          <td><%= job_posting.estimated_time %></td>
+          <td><%= link_to 'Show', job_posting %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Job posting', new_job_posting_path %>
+  <br>
+<% else %>
+  <h1>Job Postings</h1>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <!-- <th>Buyer</th> -->
+        <th>Job name</th>
+        <th>Description</th>
+        <th>Skills required</th>
+        <th>Estimated time</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @all_jp.each do |job_posting| %>
+        <tr>
+          <!-- <td><%# job_posting.buyer_id %></td> -->
+          <td><%= job_posting.job_name %></td>
+          <td><%= job_posting.description %></td>
+          <td><%= job_posting.skills_required %></td>
+          <td><%= job_posting.estimated_time %></td>
+          <td><%= link_to 'Show', job_posting %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <br>
+<% end %>
+<% if logged_in? %>
+  <%= link_to 'New Job posting', new_job_posting_path %>
+<% end %>
 </center>
