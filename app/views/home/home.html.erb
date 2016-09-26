@@ -46,7 +46,7 @@
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand page-scroll" href="/hub">CampusConnect</a>
+                <a class="navbar-brand page-scroll" href="/dashboard">CampusConnect</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -79,7 +79,7 @@
                                 <h1>The app to showcase your skills and buy services from others!</h1>
                             
                                 <% if logged_in? %>
-                                    <%= link_to "Start Now for Free!", hub_path, :class => "btn btn-outline btn-xl page-scroll" %>
+                                    <%= link_to "Start Now for Free!", dashboard_path, :class => "btn btn-outline btn-xl page-scroll" %>
                                 <% else %>
                                     <%= link_to "Start Now for Free!", signup_path, :class => "btn btn-outline btn-xl page-scroll" %>
                                 <% end %>
@@ -196,7 +196,7 @@
             <div class="container">
                 <h2>Stop waiting.<br>Start doing.</h2>
                 <% if logged_in? %>
-                    <%= link_to "Let's Get Started!", hub_path, :class => "btn btn-outline btn-xl page-scroll" %>
+                    <%= link_to "Let's Get Started!", dashboard_path, :class => "btn btn-outline btn-xl page-scroll" %>
                 <% else %>
                     <%= link_to "Let's Get Started!", signup_path, :class => "btn btn-outline btn-xl page-scroll" %>
                 <% end %>
