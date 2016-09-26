@@ -11,18 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160921092714) do
+ActiveRecord::Schema.define(version: 20160925230745) do
 
   create_table "accepted_jobs", force: :cascade do |t|
     t.integer  "job_posting_id"
     t.integer  "asking_price_id"
-    t.boolean  "completed"
     t.text     "seller_review"
     t.text     "buyer_review"
     t.integer  "seller_rating"
     t.integer  "buyer_rating"
-    t.datetime "created_at",      null: false
-    t.datetime "updated_at",      null: false
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+    t.boolean  "buyer_completed"
+    t.boolean  "seller_completed"
   end
 
   create_table "asking_prices", force: :cascade do |t|
@@ -44,6 +45,7 @@ ActiveRecord::Schema.define(version: 20160921092714) do
   end
 
   create_table "payment_informations", force: :cascade do |t|
+    t.integer  "buyer_id"
     t.integer  "card_number"
     t.integer  "cvv_code"
     t.string   "address"
@@ -53,7 +55,6 @@ ActiveRecord::Schema.define(version: 20160921092714) do
     t.string   "country"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
-    t.integer  "user_id"
   end
 
   create_table "skills", force: :cascade do |t|

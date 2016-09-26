@@ -24,12 +24,12 @@
           <td><%= accepted_job.job_posting.job_name %></td>
           <td><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s %></td>
           <td><%="$" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></td>
-          <td><%= accepted_job.completed == true ? "Yes" : "No" %></td>
+          <td><%= accepted_job.completed? ? "Yes" : accepted_job.buyer_completed? ? 'Waiting on Seller' : link_to("Mark as Completed",buyer_complete_path) %></td>
           <td><%= (accepted_job.seller_review == nil or accepted_job.seller_review == "") ? "Not Completed" : "Completed" %></td>
           <td><%= (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") ? "Not Completed" : "Completed"%></td>
           <td><%= (accepted_job.seller_rating == nil) ? "Not Completed" : "Completed" %></td>
           <td><%= (accepted_job.buyer_rating == nil) ? "Not Completed" : "Completed"   %></td>
-          <% if accepted_job.completed == true & (accepted_job.seller_rating == nil) & (accepted_job.seller_review == nil or accepted_job.seller_review == "") %>
+          <% if (accepted_job.completed? == true) & (accepted_job.seller_rating == nil) & (accepted_job.seller_review == nil or accepted_job.seller_review == "") %>
             <td><%= link_to "Review Your Service Provider", review_provider_path(accepted_job) %></td>
           <% end %>
           <% if current_user.role == "admin" %>
@@ -67,12 +67,12 @@
           <td><%= accepted_job.job_posting.job_name %></td>
           <td><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s %></td>
           <td><%="$" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></td>
-          <td><%= accepted_job.completed == true ? "Yes" : "No" %></td>
+          <td><%= accepted_job.completed? ? "Yes" : accepted_job.seller_completed? ? 'Waiting on Buyer' : link_to("Mark as Completed",seller_complete_path) %></td>
           <td><%= (accepted_job.seller_review == nil or accepted_job.seller_review == "") ? "Not Completed" : "Completed" %></td>
           <td><%= (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") ? "Not Completed" : "Completed"%></td>
           <td><%= (accepted_job.seller_rating == nil) ? "Not Completed" : "Completed" %></td>
           <td><%= (accepted_job.buyer_rating == nil) ? "Not Completed" : "Completed"   %></td>
-          <% if accepted_job.completed == true & (accepted_job.buyer_rating == nil) & (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") %>
+          <% if (accepted_job.completed?) == true & (accepted_job.buyer_rating == nil) & (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") %>
             <td><%= link_to "Review Your Client", review_client_path(accepted_job) %></td>
           <% end %>
           <% if current_user.role == "admin" %>
