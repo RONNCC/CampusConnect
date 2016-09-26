@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160926230731) do
+ActiveRecord::Schema.define(version: 20160926231734) do
 
   create_table "accepted_jobs", force: :cascade do |t|
     t.integer  "job_posting_id"
@@ -29,10 +29,9 @@ ActiveRecord::Schema.define(version: 20160926230731) do
   create_table "asking_prices", force: :cascade do |t|
     t.integer  "skill_id"
     t.string   "price"
-    t.integer  "quantity"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string   "quanitity"
+    t.string   "quantity"
   end
 
   create_table "job_postings", force: :cascade do |t|
