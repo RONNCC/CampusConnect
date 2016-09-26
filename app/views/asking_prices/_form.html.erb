@@ -25,13 +25,13 @@
   <div class="field">
     <%= f.label :price %> <br>
     <%= f.input_field :price %>
-    <%= f.hint 'Enter the price you are willing to accept for doing this service.' %>
+    <%= f.hint 'Enter the price you are willing to accept for doing this service (in dollars).' %>
     <%= f.error :price, id: 'price_error' %>
   </div>
 
   <div class="field">
     <%= f.label :quantity %> <br>
-    <%= f.input_field :quantity %>
+    <%= f.text_field :quantity %>
     <%= f.hint 'How much of a skill/service will you use/do for the price you specified?' %>
     <%= f.error :quantity, id: 'quantity_error' %>
   </div>
