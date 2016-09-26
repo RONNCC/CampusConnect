@@ -31,6 +31,9 @@ Rails.application.routes.draw do
   get 'review_client/:aj_id' => 'accepted_jobs#review_client', as: :review_client
   post 'review_update_client/:aj_id/' => 'accepted_jobs#review_update_client', as: :review_update_client
 
+  get 'buyer_complete' => 'accepted_jobs#buyer_complete', as: :buyer_complete
+  get 'seller_complete' => 'accepted_jobs#seller_complete', as: :seller_complete
+
   #Static Pages
   get "/pages/:page" => "pages#show"
 
