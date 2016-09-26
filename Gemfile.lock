@@ -212,3 +212,6 @@ DEPENDENCIES
   validates_timeliness
   web-console (~> 2.0)
   will_paginate
+
+BUNDLED WITH
+   1.12.5
