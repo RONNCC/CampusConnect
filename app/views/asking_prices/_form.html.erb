@@ -1,8 +1,7 @@
 <%= simple_form_for(@asking_price) do |f| %>
   <% if @asking_price.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@asking_price.errors.count, "error") %> prohibited this asking_price from being saved:</h2>
-
+      <h2><%= pluralize(@asking_price.errors.count, "error") %> need to be addressed in order to submit an offer:</h2>
       <ul>
       <% @asking_price.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -15,19 +14,32 @@
     <%# f.label :seller_id %><br>
     <%# f.text_field :seller_id %>
   </div> -->
+
   <div class="field">
     <%= f.label :skill_id, :label => "Skill" %><br>
     <%= f.collection_select :skill_id, @skills, :id, lambda{|skill| skill.skill}, prompt: "Select..." %>
+    <%= f.hint 'Select a skill to offer. You must add a skill before you can offer one.' %>
+    <%= f.error :skill_id, id: 'skill_id_error' %>
   </div>
+
   <div class="field">
-    <%= f.label :price %><br>
-    <%= f.text_field :price %>
+    <%= f.label :price %> <br>
+    <%= f.input_field :price %>
+    <%= f.hint 'Enter the price you are willing to accept for doing this service.' %>
+    <%= f.error :price, id: 'price_error' %>
   </div>
+
   <div class="field">
-    <%= f.label :quantity %><br>
-    <%= f.text_field :quantity %>
+    <%= f.label :quantity %> <br>
+    <%= f.input_field :quantity %>
+    <%= f.hint 'How much of a skill/service will you use/do for the price you specified?' %>
+    <%= f.error :quantity, id: 'quantity_error' %>
   </div>
+  
+  <center>
   <div class="actions">
-    <%= f.submit %>
+     <%= f.button :submit, "Submit Offer of Service", class: "btn btn-success"%> <br> <br>
   </div>
+  </center>
+
 <% end %>

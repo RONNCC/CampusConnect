@@ -1,8 +1,7 @@
-<%= form_for(@skill) do |f| %>
+<%= simple_form_for(@skill) do |f| %>
   <% if @skill.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@skill.errors.count, "error") %> prohibited this skill from being saved:</h2>
-
+      <h2><%= pluralize(@skill.errors.count, "error") %> need to be addressed in order to submit a skill:</h2>
       <ul>
       <% @skill.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -12,14 +11,23 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :skill %><br>
-    <%= f.text_field :skill %>
+    <%= f.label :skill %> <br>
+    <%= f.input_field :skill %>
+    <%= f.hint 'Concise summary of skill. Examples: Programming in Python. Poster Design. etc.' %>
+    <%= f.error :skill, id: 'skill_error' %>
   </div>
+
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.label :description %> <br>
+    <%= f.input_field :description %>
+    <%= f.hint 'Explain your skill. What is it? How long have you had it? What have you used it for?' %>
+    <%= f.error :description, id: 'description_error' %>
   </div>
+
+  <center>
   <div class="actions">
-    <%= f.submit %>
+     <%= f.button :submit, "Add Skill", class: "btn btn-success"%> <br> <br>
   </div>
+  </center>
+  
 <% end %>
