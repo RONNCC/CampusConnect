@@ -45,7 +45,6 @@ ActiveRecord::Schema.define(version: 20160926231734) do
   end
 
   create_table "payment_informations", force: :cascade do |t|
-    t.integer  "buyer_id"
     t.integer  "card_number"
     t.integer  "cvv_code"
     t.string   "address"
@@ -55,6 +54,7 @@ ActiveRecord::Schema.define(version: 20160926231734) do
     t.string   "country"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "skills", force: :cascade do |t|
