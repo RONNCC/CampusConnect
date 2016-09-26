@@ -1,8 +1,7 @@
-<%= form_for(@job_posting) do |f| %>
+<%= simple_form_for(@job_posting) do |f| %>
   <% if @job_posting.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@job_posting.errors.count, "error") %> prohibited this job_posting from being saved:</h2>
-
+      <h2><%= pluralize(@job_posting.errors.count, "error") %> need to be addressed in order to submit a job posting:</h2>
       <ul>
       <% @job_posting.errors.full_messages.each do |message| %>
         <li><%= message %></li>
@@ -16,22 +15,33 @@
     <%# f.text_field :buyer_id %>
   </div> -->
   <div class="field">
-    <%= f.label :job_name %><br>
-    <%= f.text_field :job_name %>
+    <%= f.label :job_name %> <br>
+    <%= f.input_field :job_name %>
+    <%= f.hint 'Concise summary of job. Examples: Poster Design for Research Project, Laundry, Tutoring for Calculus. etc.' %>
+    <%= f.error :job_name, id: 'job_name_error' %>
   </div>
   <div class="field">
-    <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.label :description %> <br>
+    <%= f.input_field :description %>
+    <%= f.hint 'Explain your job. What is it? How long will it take? Where will it be? What materials will be provided?' %>
+    <%= f.error :description, id: 'description_error' %>
   </div>
   <div class="field">
-    <%= f.label :skills_required %><br>
-    <%= f.text_area :skills_required %>
+    <%= f.label :skills_required %> <br>
+    <%= f.input_field :skills_required %>
+    <%= f.hint 'What skills are needed to complete the job? Examples: Graphic Design, Programming in Ruby, 3 years of Math etc.' %>
+    <%= f.error :skills_required, id: 'skills_required_error' %>
+
   </div>
   <div class="field">
-    <%= f.label :estimated_time %><br>
-    <%= f.text_field :estimated_time %>
+    <%= f.label :estimated_time %> <br>
+    <%= f.input_field :estimated_time %>
+    <%= f.hint 'Approximately how much time would this task take? Examples: 1 hour, 2 days etc.' %>
+    <%= f.error :estimated_time, id: 'estimated_time_error' %>
   </div>
+  <center>
   <div class="actions">
-    <%= f.submit %>
+     <%= f.button :submit, "Add Job Posting", class: "btn btn-success"%> <br> <br>
   </div>
+  </center>
 <% end %>
