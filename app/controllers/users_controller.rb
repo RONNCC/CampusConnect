@@ -19,6 +19,15 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    # respond_to do |format|
+    #   if @user.update(user_params)
+    #     format.html { redirect_to home_path, notice: 'User was successfully updated.' }
+    #     format.json { head :no_content }
+    #   else
+    #     format.html { render action: 'edit' }
+    #     format.json { render json: @user.errors, status: :unprocessable_entity }
+    #   end
+    # end
   end
 
   # POST /users
@@ -50,7 +59,7 @@ class UsersController < ApplicationController
   def update
     respond_to do |format|
       if @user.update(user_params)
-        format.html { redirect_to home_path, notice: 'User was successfully updated.' }
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
@@ -77,6 +86,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :password, :password_confirmation, :role, :first_name, :last_name, :phone, :email, :buyer_bio, :user_bio)
+      params.require(:user).permit(:id,:user,:username, :password, :password_confirmation, :role, :first_name, :last_name, :phone, :email, :buyer_bio, :user_bio)
     end
 end

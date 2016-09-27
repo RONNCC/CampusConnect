@@ -13,6 +13,7 @@
   <div class="field">
     <center>
     <TABLE class="table" style="width:400px">
+      <% if controller.action_name=="create" || controller.action_name=="new"%>
       <TR><TD>
             <%= f.label :username %><br>
             <%= f.hint 'No special characters, please!' %>
@@ -37,6 +38,8 @@
             <%= f.error :password_confirmation, id: 'password_confirmation_error' %>
           </TD>
       </TR>
+      <% end %>
+      
       <TR><TD>
         <%= f.label :first_name %>
         <%= f.hint 'Must be at least 3 characters' %>
@@ -73,7 +76,10 @@
     </center>
   </div>
   
-  <br> 
+  <% if controller.action_name=="create" || controller.action_name=="new"%>
+
+  <br>
+  <p>YOLO: <%=controller.action_name %> </p>
   <div class="checkbox">
         <label>
             <input type="checkbox"> <p> I agree to the <a href="/pages/terms">terms and conditions</a> and <a href="/pages/privacy"> privacy policy. </p> </a>  
@@ -85,10 +91,16 @@
             <input type="checkbox"> <p> I agree not to use this service in a manner that violates academic integrity guidelines explained <a href="/pages/faq">here. </p> </a>
         </label>
   </div> 
+  <% end %>
+  
   <br>
   <center>
   <div class="actions">
-  <%= f.button :submit, "Create Account", class: "btn btn-success"%> <br>
+  <% if controller.action_name=="create" || controller.action_name=="new"%>
+    <%= f.button :submit, "Create Account", class: "btn btn-success"%> <br>
+  <% else %>
+    <%= f.button :submit, "Edit Profile", class: "btn btn-success"%> <br>
+  <% end %> 
   </div>
   </center>
 
