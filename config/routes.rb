@@ -34,6 +34,9 @@ Rails.application.routes.draw do
   get 'buyer_complete' => 'accepted_jobs#buyer_complete', as: :buyer_complete
   get 'seller_complete' => 'accepted_jobs#seller_complete', as: :seller_complete
 
+  get 'completed_jobs' => 'accepted_jobs#completed_jobs', as: :completed_jobs
+  get 'active_jobs' => 'accepted_jobs#active_jobs', as: :active_jobs
+
   #Static Pages
   get "/pages/:page" => "pages#show"
 

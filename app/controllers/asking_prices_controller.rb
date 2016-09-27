@@ -5,8 +5,14 @@ class AskingPricesController < ApplicationController
   # GET /asking_prices.json
   def index
     @asking_prices = AskingPrice.all
-    @your_ap = AskingPrice.open_for_user(current_user.id)
-    @other_ap = AskingPrice.open_not_for_user(current_user.id)
+    if logged_in?
+      @your_ap = AskingPrice.open_for_user(current_user.id)
+      @other_ap = AskingPrice.open_not_for_user(current_user.id)
+    else
+      ap1 = AskingPrice.open_for_user(1).to_a
+      ap2 = AskingPrice.open_not_for_user(1).to_a
+      @all_ap = ap1 + ap2
+    end
   end
 
   # GET /asking_prices/1

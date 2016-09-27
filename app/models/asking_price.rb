@@ -6,8 +6,8 @@ class AskingPrice < ActiveRecord::Base
 
   #Validations
   validates_presence_of :skill_id, :price, :quantity
-  validates :price, numericality: { greater_than: 0 }
-  validates :quantity, numericality: { greater_than: 0 }
+  # validates :price, numericality: { greater_than: 0 }
+  # validates :quantity, numericality: { greater_than: 0 }
 
  
   #Scopes
