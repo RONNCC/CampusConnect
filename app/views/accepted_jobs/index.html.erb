@@ -1,19 +1,42 @@
+<div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
 <center>
   <!-- <p id="notice"><%= notice %></p> -->
+  
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#jobcreate" aria-controls="home" role="tab" data-toggle="tab"><p><b>Jobs Created</b></p></a></li>
+    <li role="presentation"><a href="#jobaccept" aria-controls="profile" role="tab" data-toggle="tab"><p><b>Jobs Accepted</b></p></a></li>
+  </ul>
 
-  <h1>Your Accepted Jobs As a Buyer of Services</h1>
+  </center>
+    <div class="dropdown">
+  <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dLabel">
+    <li><a href="#">Most Recent</a></li>
+    <li><a href="#">Highest Price</a></li>
+    <li><a href="#">Lowest Price</a></li>
+    <li><a href="#">Rating</a></li>
+  </ul>
+</div>
+<center>
+
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="jobcreate">
 
   <table class="table">
     <thead>
       <tr>
-        <th>Job posting</th>
-        <th>Skill(s) Required</th>
-        <th>Asking price</th>
-        <th>Completed</th>
-        <th>Seller review</th>
-        <th>Buyer review</th>
-        <th>Seller rating</th>
-        <th>Buyer rating</th>
+        <th><p>Job posting</p></th>
+        <th><p>Skill(s) Required</p></th>
+        <th><p>Asking price</p></th>
+        <th><p>Completed</p></th>
+        <th><p>Seller review</p></th>
+        <th><p>Buyer review</p></th>
+        <th><p>Seller rating</p></th>
+        <th><p>Buyer rating</p></th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -21,42 +44,43 @@
     <tbody>
       <% @acc_jobs_buy.each do |accepted_job| %>
         <tr>
-          <td><%= accepted_job.job_posting.job_name %></td>
-          <td><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s %></td>
-          <td><%="$" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></td>
-          <td><%= accepted_job.completed? ? "Yes" : accepted_job.buyer_completed? ? 'Waiting on Seller' : link_to("Mark as Completed",buyer_complete_path) %></td>
-          <td><%= (accepted_job.seller_review == nil or accepted_job.seller_review == "") ? "Not Completed" : "Completed" %></td>
-          <td><%= (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") ? "Not Completed" : "Completed"%></td>
-          <td><%= (accepted_job.seller_rating == nil) ? "Not Completed" : "Completed" %></td>
-          <td><%= (accepted_job.buyer_rating == nil) ? "Not Completed" : "Completed"   %></td>
+          <td><p><%= accepted_job.job_posting.job_name %></p></td>
+          <td><p><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s %></p></td>
+          <td><p><%="$" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></p></td>
+          <td><p><%= accepted_job.completed? ? "Yes" : accepted_job.buyer_completed? ? 'Waiting on Seller' : link_to("Mark as Completed",buyer_complete_path) %></p></td>
+          <td><p><%= (accepted_job.seller_review == nil or accepted_job.seller_review == "") ? "Not Completed" : "Completed" %></p></td>
+          <td><p><%= (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") ? "Not Completed" : "Completed"%></p></td>
+          <td><p><%= (accepted_job.seller_rating == nil) ? "Not Completed" : "Completed" %></p></td>
+          <td><p><%= (accepted_job.buyer_rating == nil) ? "Not Completed" : "Completed"   %></p></td>
           <% if (accepted_job.completed? == true) & (accepted_job.seller_rating == nil) & (accepted_job.seller_review == nil or accepted_job.seller_review == "") %>
-            <td><%= link_to "Review Your Service Provider", review_provider_path(accepted_job) %></td>
+            <td><p><%= link_to "Review Your Service Provider", review_provider_path(accepted_job) %></p></td>
           <% end %>
           <% if current_user.role == "admin" %>
-            <td><%= link_to 'Show', accepted_job %></td>
-            <td><%= link_to 'Edit', edit_accepted_job_path(accepted_job) %></td>
-            <td><%= link_to 'Destroy', accepted_job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'View Job', accepted_job, class: "btn btn-success" %></td>
+            <td><%= link_to 'Edit', edit_accepted_job_path(accepted_job), class: "btn btn-warning" %></td>
+            <td><%= link_to 'Cancel Job', accepted_job, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
+</div>
 
-  <br>
 
-  <h1>Your Accepted Jobs As a Seller of Services</h1>
+
+    <div role="tabpanel" class="tab-pane active" id="jobaccept">
 
   <table class="table">
     <thead>
       <tr>
-        <th>Job posting</th>
-        <th>Skill(s) Required</th>
-        <th>Asking price</th>
-        <th>Completed</th>
-        <th>Seller review</th>
-        <th>Buyer review</th>
-        <th>Seller rating</th>
-        <th>Buyer rating</th>
+        <th><p>Job posting</p></th>
+        <th><p>Skill(s) Required</p></th>
+        <th><p>Asking price</p></th>
+        <th><p>Completed</p></th>
+        <th><p>Seller review</p></th>
+        <th><p>Buyer review</p></th>
+        <th><p>Seller rating</p></th>
+        <th><p>Buyer rating</p></th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -64,28 +88,29 @@
     <tbody>
       <% @acc_jobs_sell.each do |accepted_job| %>
         <tr>
-          <td><%= accepted_job.job_posting.job_name %></td>
-          <td><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s %></td>
-          <td><%="$" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></td>
-          <td><%= accepted_job.completed? ? "Yes" : accepted_job.seller_completed? ? 'Waiting on Buyer' : link_to("Mark as Completed",seller_complete_path) %></td>
-          <td><%= (accepted_job.seller_review == nil or accepted_job.seller_review == "") ? "Not Completed" : "Completed" %></td>
-          <td><%= (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") ? "Not Completed" : "Completed"%></td>
-          <td><%= (accepted_job.seller_rating == nil) ? "Not Completed" : "Completed" %></td>
-          <td><%= (accepted_job.buyer_rating == nil) ? "Not Completed" : "Completed"   %></td>
-          <% if (accepted_job.completed?) == true & (accepted_job.buyer_rating == nil) & (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") %>
-            <td><%= link_to "Review Your Client", review_client_path(accepted_job) %></td>
+          <td><p><%= accepted_job.job_posting.job_name %></p></td>
+          <td><p><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s %></p></td>
+          <td><p><%="$" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></p></td>
+          <td><p><%= accepted_job.completed? ? "Yes" : accepted_job.buyer_completed? ? 'Waiting on Seller' : link_to("Mark as Completed",buyer_complete_path) %></p></td>
+          <td><p><%= (accepted_job.seller_review == nil or accepted_job.seller_review == "") ? "Not Completed" : "Completed" %></p></td>
+          <td><p><%= (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") ? "Not Completed" : "Completed"%></p></td>
+          <td><p><%= (accepted_job.seller_rating == nil) ? "Not Completed" : "Completed" %></p></td>
+          <td><p><%= (accepted_job.buyer_rating == nil) ? "Not Completed" : "Completed"   %></p></td>
+          <% if (accepted_job.completed? == true) & (accepted_job.seller_rating == nil) & (accepted_job.seller_review == nil or accepted_job.seller_review == "") %>
+            <td><p><%= link_to "Review Your Service Provider", review_provider_path(accepted_job) %></p></td>
           <% end %>
           <% if current_user.role == "admin" %>
-            <td><%= link_to 'Show', accepted_job %></td>
-            <td><%= link_to 'Edit', edit_accepted_job_path(accepted_job) %></td>
-            <td><%= link_to 'Destroy', accepted_job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><%= link_to 'View Job', accepted_job, class: "btn btn-success" %></td>
+            <td><%= link_to 'Edit', edit_accepted_job_path(accepted_job), class: "btn btn-warning" %></td>
+            <td><%= link_to 'Cancel Job', accepted_job, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %></td>
           <% end %>
         </tr>
       <% end %>
     </tbody>
   </table>
 
-  <br>
-
-  <%= link_to 'New Accepted job', new_accepted_job_path %>
+  </div>
+</div>
+  <%= link_to 'New Accepted job', new_accepted_job_path, class: 'btn btn-info' %>
 </center>
+</div>
