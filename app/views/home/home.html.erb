@@ -98,11 +98,15 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    
+                    <% if !logged_in? %>
                     <li>
                         <a class="page-scroll" href=<%=login_path%>>Login</a>
                     </li> 
-                    
+                    <% else %>
+                    <li>
+                        <a class="page-scroll" href=<%=dashboard_path%>>Marketplace</a>
+                    </li>
+                    <% end %>
                     <li>
                         <a class="page-scroll" href="#download">Download</a>
                     </li>

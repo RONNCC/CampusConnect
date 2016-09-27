@@ -1,3 +1,4 @@
+<div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
 <center>
   <!-- <p id="notice"><%= notice %></p> -->
 
@@ -6,14 +7,14 @@
   <table class="table">
     <thead>
       <tr>
-        <th>Job posting</th>
-        <th>Skill(s) Required</th>
-        <th>Asking price</th>
+        <th><p>Job posting</p></th>
+        <th><p>Skill(s) Required</p></th>
+        <th><p>Asking price</p></th>
         <!-- <th>Completed</th> -->
-        <th>Seller review</th>
-        <th>Buyer review</th>
-        <th>Seller rating</th>
-        <th>Buyer rating</th>
+        <th><p>Seller review</p></th>
+        <th><p>Buyer review</p></th>
+        <th><p>Seller rating</p></th>
+        <th><p>Buyer rating</p></th>
         <th colspan="3"></th>
       </tr>
     </thead>
@@ -21,14 +22,14 @@
     <tbody>
       <% @acc_job_comp.each do |accepted_job| %>
         <tr>
-          <td><%= accepted_job.job_posting.job_name %></td>
-          <td><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s %></td>
-          <td><%="$" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></td>
+          <td><p><%= accepted_job.job_posting.job_name %></p></td>
+          <td><p><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s %></p></td>
+          <td><p><%="$" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></p></td>
           <!-- <td><%= accepted_job.completed? ? "Yes" : accepted_job.buyer_completed? ? 'Waiting on Seller' : link_to("Mark as Completed",buyer_complete_path) %></td> -->
-          <td><%= (accepted_job.seller_review == nil or accepted_job.seller_review == "") ? "Not Completed" : "Completed" %></td>
-          <td><%= (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") ? "Not Completed" : "Completed"%></td>
-          <td><%= (accepted_job.seller_rating == nil) ? "Not Completed" : "Completed" %></td>
-          <td><%= (accepted_job.buyer_rating == nil) ? "Not Completed" : "Completed"   %></td>
+          <td><p><%= (accepted_job.seller_review == nil or accepted_job.seller_review == "") ? "Not Completed" : "Completed" %></p></td>
+          <td><p><%= (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") ? "Not Completed" : "Completed"%></p></td>
+          <td><p><%= (accepted_job.seller_rating == nil) ? "Not Completed" : "Completed" %></p></td>
+          <td><p><%= (accepted_job.buyer_rating == nil) ? "Not Completed" : "Completed"   %></p></td>
           <% if (accepted_job.completed? == true) & (accepted_job.seller_rating == nil) & (accepted_job.seller_review == nil or accepted_job.seller_review == "") %>
             <td><%# link_to "Review Your Service Provider", review_provider_path(accepted_job) %></td>
           <% end %>
@@ -45,3 +46,4 @@
   <br>
 
 </center>
+</div>
