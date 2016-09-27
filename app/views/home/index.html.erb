@@ -1,26 +1,37 @@
 <div id="container" class="well">
   <center>
-    <h1>Welcome</h1>
-    <h3>(still in development...)</h3>
-
-    <div id="buysell">
-      <br>
-      <div id='jobs'>
-          <%= link_to 'View Unfulfilled Jobs', job_postings_path %>
+    <h1>Welcome to your Campus Connect Dashboard</h1>
+    <!-- <h3>(still in development...)</h3> -->
+    <div class="row">
+      <div class="col-sm-3">
       </div>
-      <br><br>
-      <div id='skills'>
-          <%= link_to 'View Jobs Offerings', asking_prices_path %>
-      </div>
-      <br><br>
-      <% if logged_in? %>
-        <div id='accepted'>
-            <%= link_to 'View Accepted Jobs', accepted_jobs_path %>
+      <div class="card">
+        <div class="col-sm-3" id="getjob">
+          <h4>Acquire or Provide a Job</h4>
+          <br>
+          <div id='jobs'>
+              <%= link_to 'View Unfulfilled Jobs', job_postings_path, class: "btn btn-primary" %>
+          </div>
+          <br><br>
+          <div id='skills'>
+              <%= link_to 'View Jobs Offerings', asking_prices_path, class: "btn btn-primary" %>
+          </div>
         </div>
-        <br><br>
-      <% end %>
-      <div id='users'>
-          <%= link_to 'View User Ratings', users_path %>
+      </div>
+      <div class="card">
+        <div class="col-sm-3" id="buysell">
+          <h4>View Accepted Jobs and Ratings</h4>
+          <br>
+          <% if logged_in? %>
+            <div id='accepted'>
+                <%= link_to 'View Accepted Jobs', accepted_jobs_path, class: "btn btn-info" %>
+            </div>
+            <br><br>
+          <% end %>
+          <div id='users'>
+              <%= link_to 'View User Ratings', users_path, class: "btn btn-info" %>
+          </div>
+        </div>
       </div>
     </div>
   </center>
