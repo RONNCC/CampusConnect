@@ -129,6 +129,22 @@ class AcceptedJobsController < ApplicationController
     end
   end
 
+  def completed_jobs
+    acc_job_buy = AcceptedJob.comp_for_user_buyer(current_user.id).to_a
+    acc_job_sell = AcceptedJob.comp_for_user_seller(current_user.id).to_a
+    @acc_job_comp = acc_job_buy + acc_job_sell
+  end
+
+  def active_jobs
+    all_buy = AcceptedJob.for_user_buyer(current_user.id).to_a
+    all_sell = AcceptedJob.for_user_seller(current_user.id).to_a
+    comp_buy = AcceptedJob.comp_for_user_buyer(current_user.id).to_a
+    comp_sell = AcceptedJob.comp_for_user_seller(current_user.id).to_a
+    active_buy = all_buy - comp_buy
+    active_sell = all_sell - comp_sell
+    @active_jobs = active_buy + active_sell
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_accepted_job
@@ -137,6 +153,6 @@ class AcceptedJobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def accepted_job_params
-      params.require(:accepted_job).permit(:job_posting_id, :asking_price_id, :completed, :seller_review, :buyer_review, :seller_rating, :buyer_rating)
+      params.require(:accepted_job).permit(:job_posting_id, :asking_price_id, :buyer_completed, :seller_completed, :seller_review, :buyer_review, :seller_rating, :buyer_rating)
     end
 end
