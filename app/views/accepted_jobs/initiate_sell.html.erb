@@ -1,13 +1,16 @@
+<div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
+<center>
+
 <h1>Here are the current job postings</h1>
 <br>
 <table class="table">
   <thead>
     <tr>
       <!-- <th>Buyer</th> -->
-      <th>Job Name</th>
-      <th>Description</th>
-      <th>Skills Required</th>
-      <th>Estimated Time</th>
+      <th><p>Job Name</p></th>
+      <th><p>Description</p></th>
+      <th><p>Skills Required</p></th>
+      <th><p>Estimated Time</p></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,21 +19,61 @@
     <% @ny_job_postings.each do |jp| %>
       <tr>
         <!-- <td><%# job_posting.buyer_id %></td> -->
-        <td><%= jp.job_name %></td>
-        <td><%= jp.description %></td>
-        <td><%= jp.skills_required %></td>
-        <td><%= jp.estimated_time %></td>
-        <td><%= link_to 'Select Job Posting', make_accepted_job_path(jp,@ap) %></td>
+        <td><p><%= jp.job_name %></p></td>
+        <td><p><%= jp.description %></p></td>
+        <td><p><%= jp.skills_required %></p></td>
+        <td><p><%= jp.estimated_time %></p></td>
+        <td><button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal">Inquire</button></td>
       </tr>
+
+
+      <!-- Modal Code -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Please reach out to <%=jp.user.username%> by email</h4>
+      </div>
+      <div class="modal-body">
+        Username: <%= jp.user.username %><br>
+        Email: <%= jp.user.email %>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
     <% end %>
   </tbody>
 </table>
 
+
+
+
+
+<br>
+<br>
+<br>
 <br>
 <br>
 
-<h4>Your Job Offering</h4>
-<%= "Name: " + (@ap.skill.skill === "" ? "No Name" : @ap.skill.skill) %><br>
-<%= "Description: " + (@ap.skill.description === "" ? "No description" : @ap.skill.description) %><br>
-<%= "Skills Required: " + (@ap.price === "" ? "No Price Info" : "$" + @ap.price.to_s) %><br>
-<%= "Estimated Time Required: " + (@ap.quantity.to_s === "" ? "No Quantity" : @ap.quantity.to_s) %><br>
+</center>
+
+<i>
+<div class="card">
+  <div class="card-block">
+    <h4 class="card-title"><b>Your Job Offering</b></h4>
+    <p class="card-text">
+    <p><%= "Name: " + (@ap.skill.skill === "" ? "No Name" : @ap.skill.skill) %></p>
+    <p><%= "Description: " + (@ap.skill.description === "" ? "No description" : @ap.skill.description) %></p>
+    <p><%= "Price: " + (@ap.price === "" ? "No Price Info" : "$" + @ap.price.to_s) %></p>
+    <p><%= "Quantity: " + (@ap.quantity.to_s === "" ? "No Quantity Input" : @ap.quantity.to_s) %></p>
+    </p>
+  </div>
+</div>
+</i>
+
+
+</div>

@@ -2,41 +2,103 @@
 <center>
 <p id="notice"><%= notice %></p>
 
-<p>
-  <h1><b>Job Posting</b>  <%= @accepted_job.job_posting_id %></h1>
-</p>
 
 <p>
-  <strong>Asking price:</strong>
-  <%= @accepted_job.asking_price_id %>
+  <h1><b>Job:</b>  <%= @accepted_job.job_posting.job_name %></h1>
 </p>
+<h3><b>Description:</b></h3> <p><%= @accepted_job.job_posting.description %></p>
+ <table class="table">
+    <thead>
+      <tr>
+        <th><p>Skill(s) Required</p></th>
+        <th><p>Estimated Time for Completion</p></th>
+        <th><p>Agreed Price</p></th>
+        <th><p>Agreed Quantity</p></th>
+        <th><p>Completed</p></th>
+        <% if not(@accepted_job.seller_review.nil?) %>
+        <th><p>Seller Review</p></th>
+        <% end %>
+        <% if not(@accepted_job.seller_rating.nil?) %>
+        <th><p>Seller Rating</p></th>
+        <% end %>
+        <% if not(@accepted_job.buyer_review.nil?) %>
+        <th><p>Buyer Review</p></th>
+        <% end %>
+        <% if not(@accepted_job.buyer_rating.nil?) %>
+        <th><p>Buyer Rating</p></th>
+        <% end %>
+        <!-- <th><p>Seller rating</p></th> -->
+        <!-- <th><p>Buyer rating</p></th> -->
+        <th colspan="3"></th>
+      </tr>
+    </thead>
 
-<p>
-  <strong>Completed:</strong>
-  <%= @accepted_job.completed? %>
+    <tbody>
+        <tr>
+          <td><p><%= @accepted_job.job_posting.skills_required %></p></td>
+          <td><p><%= @accepted_job.job_posting.estimated_time %></p></td>
+          <td><p><%= "$" + @accepted_job.asking_price.price.to_s %></p></td>
+          <td><p><%= @accepted_job.asking_price.quantity %></p></td>
+          <td><p><%= @accepted_job.completed? ? "Yes" : "No" %></p></td>
+          <!-- <td><p><%# (accepted_job.seller_rating == nil) ? "Not Completed" : "Completed" %></p></td> -->
+          <!-- <td><p><%# (accepted_job.buyer_rating == nil) ? "Not Completed" : "Completed"   %></p></td> -->
+          <% if not(@accepted_job.seller_review.nil?) %>
+          <td><p><%= @accepted_job.seller_review %></p></td>
+          <% end %>
+          <% if not(@accepted_job.seller_rating.nil?) %>
+          <td><p><%= @accepted_job.seller_rating.to_f %></p></td>
+          <% end %>
+          <% if not(@accepted_job.buyer_review.nil?) %>
+          <td><p><%= @accepted_job.buyer_review %></p></td>
+          <% end %>
+          <% if not(@accepted_job.buyer_rating.nil?) %>
+          <td><p><%= @accepted_job.buyer_rating.to_f %></p></td>
+          <% end %>
+        </tr>
+    </tbody>
+  </table>
+
+
+
+
+<div id="container" class="well">
+  <center>
+    <!-- <h3>(still in development...)</h3> -->
+    <div class="row">
+      <div class="col-sm-3">
+      </div>
+      <div class="card">
+        <div class="col-sm-3" id="getjob">
+          <p>
+  <strong>Seller Contact Information:</strong>
+  <% seller = @accepted_job.asking_price.skill.user %><br>
+  <%= "Name: " + seller.first_name + " " + seller.last_name %><br>
+  <%= "Phone: " + seller.phone.to_s %><br>
+  <%= "Email: " + seller.email.to_s %>
 </p>
+          </div>
+        </div>
+      
+      <div class="card">
+        <div class="col-sm-3" id="buysell">
+          <p>
+            <strong>Buyer Contact Information:</strong>
+            <% buyer = @accepted_job.job_posting.user %><br>
+            <%= "Name: " + buyer.first_name + " " + buyer.last_name %><br>
+            <%= "Phone: " + buyer.phone.to_s %><br>
+            <%= "Email: " + buyer.email.to_s %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </center>
+</div>
 
-<p>
-  <strong>Seller review:</strong>
-  <%= @accepted_job.seller_review %>
-</p>
 
-<p>
-  <strong>Buyer review:</strong>
-  <%= @accepted_job.buyer_review %>
-</p>
 
-<p>
-  <strong>Seller rating:</strong>
-  <%= @accepted_job.seller_rating %>
-</p>
 
-<p>
-  <strong>Buyer rating:</strong>
-  <%= @accepted_job.buyer_rating %>
-</p>
 
-<%= link_to 'Edit', edit_accepted_job_path(@accepted_job), class: "btn btn-warning" %> |
 <%= link_to 'Back', accepted_jobs_path, class: "btn btn-info" %>
+<br><br><br><br>
 </center>
 </div>

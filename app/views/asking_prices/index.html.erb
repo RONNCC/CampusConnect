@@ -84,8 +84,9 @@
           <!-- <td><p><%= asking_price.skill.description %></p></td> -->
           <td><p><%= "$" + asking_price.price.to_s %></p></td>
           <td><p><%= asking_price.quantity %></p></td>
-          <td><%= link_to 'View Job Offer', asking_price, class: "btn btn-success" %></td>
           <% if current_user.role == "admin" %>
+          <td><%= link_to 'View Job Offer', asking_price, class: "btn btn-success" %></td>
+
           <td><%= link_to 'Edit', edit_asking_price_path(asking_price), class: "btn btn-warning"%></td>
           <td><%= link_to 'Delete', asking_price, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure you want to delete this job offering?' } %></td>
           <% end %>
