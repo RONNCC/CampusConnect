@@ -21,9 +21,9 @@
         <!-- <td><%# job_posting.buyer_id %></td> -->
         <td><p><%= ap.skill.skill %></p></td>
         <td><p><%= ap.skill.description %></p></td>
-        <td><p><%= ap.price %></p></td>
+        <td><p><%= "$" + ap.price %></p></td>
         <td><p><%= ap.quantity %></p></td>
-        <td><%= link_to 'Select Job Offering', make_accepted_job_path(@jp,ap) %></td>
+        <td><%= link_to 'Select Job Offering', make_accepted_job_path(@jp,ap), class: "btn btn-primary btn-sm"  %></td>
       </tr>
     <% end %>
   </tbody>
