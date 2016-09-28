@@ -23,7 +23,7 @@
         <td><p><%= ap.skill.description %></p></td>
         <td><p><%= "$" + ap.price %></p></td>
         <td><p><%= ap.quantity %></p></td>
-        <td><%= link_to 'Select Job Offering', make_accepted_job_path(@jp,ap) %></td>
+        <td><%= link_to 'Select Job Offering', make_accepted_job_path(@jp,ap), class: "btn btn-primary btn-sm"  %></td>
       </tr>
     <% end %>
   </tbody>
