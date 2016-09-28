@@ -37,7 +37,7 @@
         <tr>
           <td><p><%= @accepted_job.job_posting.skills_required %></p></td>
           <td><p><%= @accepted_job.job_posting.estimated_time %></p></td>
-          <td><p><%= "$" + @accepted_job.asking_price.price.to_s %></p></td>
+          <td><p><%= @accepted_job.asking_price.price.to_s %></p></td>
           <td><p><%= @accepted_job.asking_price.quantity %></p></td>
           <td><p><%= @accepted_job.completed? ? "Yes" : "No" %></p></td>
           <!-- <td><p><%# (accepted_job.seller_rating == nil) ? "Not Completed" : "Completed" %></p></td> -->

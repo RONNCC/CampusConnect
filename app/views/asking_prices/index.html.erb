@@ -82,7 +82,7 @@
           <td><p><%= asking_price.skill.user.username %></p></td>
           <td><p><%= asking_price.skill.skill %></p></td>
           <!-- <td><p><%= asking_price.skill.description %></p></td> -->
-          <td><p><%= "$" + asking_price.price.to_s %></p></td>
+          <td><p><%= asking_price.price.to_s %></p></td>
           <td><p><%= asking_price.quantity %></p></td>
           <% if current_user.role == "admin" %>
           <td><%= link_to 'View Job Offer', asking_price, class: "btn btn-success" %></td>
@@ -120,7 +120,7 @@
           <!-- <td><%# asking_price.skill_id %></td> -->
           <td><p><%= asking_price.skill.skill %></p></td>
           <td><p><%= asking_price.skill.description %></p></td>
-          <td><p><%= "$" + asking_price.price.to_s %></p></td>
+          <td><p><%= asking_price.price.to_s %></p></td>
           <td><p><%= asking_price.quantity %></p></td>        
         </tr>
       <% end %>
