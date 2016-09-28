@@ -72,4 +72,12 @@ class User < ActiveRecord::Base
     res.nan? ? "No Ratings Yet" : res
   end
 
+  def seller_accepted_jobs
+    self.skills.to_a.map{|s| s.asking_prices.to_a.map{|ap| ap.accepted_jobs.to_a}}.flatten.compact
+  end
+
+  def buyer_accepted_jobs
+    self.job_postings.to_a.map{|jp| jp.accepted_job}.flatten.compact
+  end
+
 end
