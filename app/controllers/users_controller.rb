@@ -78,6 +78,12 @@ class UsersController < ApplicationController
     end
   end
 
+  def user_reviews
+    @user = User.find(params[:u_id])
+    @saj = @user.seller_accepted_jobs
+    @baj = @user.buyer_accepted_jobs
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_user

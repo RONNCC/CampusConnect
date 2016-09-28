@@ -7,8 +7,10 @@
     <span class="caret"></span>
   </button>
   <ul class="dropdown-menu" aria-labelledby="dLabel">
-    <li><a href="#">Highest Rated</a></li>
-    <li><a href="#">Lowest Rated</a></li>
+    <li><a href="#">Highest Rated (Buyer)</a></li>
+    <li><a href="#">Lowest Rated (Buyer)</a></li>
+    <li><a href="#">Highest Rated (Seller)</a></li>
+    <li><a href="#">Lowest Rated (Seller)</a></li>
   </ul>
 </div>
 <table class="table">
@@ -30,7 +32,7 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><p><%= user.username %></p></td>
+        <td><p><%= link_to user.username, user_reviews_path(user) %></p></td>
         <!-- <td><%= user.password_digest %></td> -->
         <!-- <td><%= user.role %></td> -->
         <!-- <td><% user.first_name %></td>

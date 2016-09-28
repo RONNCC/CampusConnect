@@ -37,6 +37,8 @@ Rails.application.routes.draw do
   get 'completed_jobs' => 'accepted_jobs#completed_jobs', as: :completed_jobs
   get 'active_jobs' => 'accepted_jobs#active_jobs', as: :active_jobs
 
+  get 'user_reviews/:u_id' => 'users#user_reviews', as: :user_reviews
+
   #Static Pages
   get "/pages/:page" => "pages#show"
 

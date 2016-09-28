@@ -1,0 +1,93 @@
+<div class="col-xs-12 col-sm-6 col-md-6 col-sm-offset-3 col-md-offset-3">
+<center>
+<h2><%= "Reviews for " + @user.username %></h2>
+<p id="notice"><%= notice %></p>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li role="presentation" class="active"><a href="#buyrev" aria-controls="home" role="tab" data-toggle="tab"><p><b>Reviews as a Buyer of Services</b></p></a></li>
+    <li role="presentation"><a href="#selrev" aria-controls="profile" role="tab" data-toggle="tab"><p><b>Reviews as a Seller of Services</b></p></a></li>
+  </ul>
+
+  </center>
+    <div class="dropdown">
+  <button id="dLabel" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Sort
+    <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" aria-labelledby="dLabel">
+    <li><a href="#">Highest Rating</a></li>
+    <li><a href="#">Lowest Rating</a></li>
+  </ul>
+</div>
+<center>
+
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active" id="buyrev">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <!-- <th>Sell</th> -->
+        <!-- <th>Skill</th> -->
+        <th><p>Job</p></th>
+        <!-- <th><p>Description</p></th> -->
+        <th><p>Rating</p></th>
+        <th><p>Review</p></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @baj.each do |aj| %>
+        <tr>
+          <!-- <td><%# asking_price.seller_id %></td> -->
+          <!-- <td><%# asking_price.skill_id %></td> -->
+          <td><p><%= aj.job_posting.job_name %></p></td>
+          <!-- <td><p><%# asking_price.skill.description %></p></td> -->
+          <td><p><%= aj.buyer_rating.nil? ? "Not Yet Rated" : aj.buyer_rating.to_f %></p></td>
+          <td><p><%= aj.buyer_review.nil? ? "Not Yet Reviwed" : aj.buyer_review %></p></td>
+          <!-- <td><%# link_to 'Initiate Job', initiate_job_sell_path(asking_price), class: "btn btn-success" %></td>
+          <td><%# link_to 'Edit', edit_asking_price_path(asking_price), class: "btn btn-warning"%></td>
+          <td><%# link_to 'Delete', asking_price, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure you want to delete this job offering?' } %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  </div>
+
+  <div role="tabpanel" class="tab-pane" id="sellrev">
+
+  <table class="table">
+    <thead>
+      <tr>
+        <!-- <th>Sell</th> -->
+        <!-- <th>Skill</th> -->
+        <th><p>Job</p></th>
+        <!-- <th><p>Description</p></th> -->
+        <th><p>Rating</p></th>
+        <th><p>Review</p></th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @saj.each do |aj| %>
+        <tr>
+          <!-- <td><%# asking_price.seller_id %></td> -->
+          <!-- <td><%# asking_price.skill_id %></td> -->
+          <td><p><%= aj.job_posting.job_name %></p></td>
+          <!-- <td><p><%# asking_price.skill.description %></p></td> -->
+          <td><p><%= aj.seller_rating.nil? ? "Not Yet Rated" : aj.seller_rating.to_f %></p></td>
+          <td><p><%= aj.seller_review.nil? ? "Not Yet Reviwed" : aj.seller_review %></p></td>
+          <!-- <td><%# link_to 'Initiate Job', initiate_job_sell_path(asking_price), class: "btn btn-success" %></td>
+          <td><%# link_to 'Edit', edit_asking_price_path(asking_price), class: "btn btn-warning"%></td>
+          <td><%# link_to 'Delete', asking_price, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure you want to delete this job offering?' } %></td> -->
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  </div>
+  </div>
+</div>
