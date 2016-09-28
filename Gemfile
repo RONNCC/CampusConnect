@@ -42,6 +42,7 @@ gem 'foundation-rails'
 gem 'font-awesome-sass-rails'
 gem 'geocoder', '1.3.2'
 gem 'simple-line-icons-rails'
+gem 'annotate'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 

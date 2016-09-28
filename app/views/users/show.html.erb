@@ -12,10 +12,10 @@
                     <p><strong>About: </strong> Web Designer / UI. </p>
                     <p><strong>Hobbies: </strong> Read, out with friends, listen to music, draw and learn new things. </p>
                     <p><strong>Skills: </strong>
-                        <span class="tags">html5</span> 
-                        <span class="tags">css3</span>
-                        <span class="tags">jquery</span>
-                        <span class="tags">bootstrap3</span>
+                    <% current_user.skills.each do |skill| %>
+                      <span class="tags"><%=skill.skill %></span>   
+                    <% end %>
+                        <span class="btn btn-default noselect"><%= link_to 'Add Skill', new_skill_path %></span>
                     </p>
                 </div>             
                 <div class="col-xs-12 col-sm-4 text-center">

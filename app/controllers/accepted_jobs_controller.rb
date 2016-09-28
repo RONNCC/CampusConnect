@@ -153,6 +153,6 @@ class AcceptedJobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def accepted_job_params
-      params.require(:accepted_job).permit(:job_posting_id, :asking_price_id, :buyer_completed, :seller_completed, :seller_review, :buyer_review, :seller_rating, :buyer_rating)
+      params.require(:accepted_job).permit(:aj_id, :job_posting_id, :asking_price_id, :buyer_completed, :seller_completed, :seller_review, :buyer_review, :seller_rating, :buyer_rating)
     end
 end
