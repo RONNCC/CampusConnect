@@ -71,7 +71,17 @@
     <%= f.error :phone, id: 'phone_error' %>
       </TD>
       </TR>
-      
+
+      <TR><TD>
+    <%= f.label :seller_bio %>
+        <%= f.hint 'Optional. Allows for text notifications and alternative contact methods.' %>
+
+      </TD><TD>
+    <%= f.input_field :seller_bio, placeholder: "" %>
+    <%= f.error :seller_bio, id: 'seller_bio error' %>
+      </TD>
+      </TR>
+
     </TABLE>
     </center>
   </div>
