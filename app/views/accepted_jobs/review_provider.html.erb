@@ -1,13 +1,20 @@
 <center>
-  <h3>Please review the provider of your service<!-- , Username: <i><%= @aj.asking_price.skill.user.username %></i> --></h3>
+  <h4>Please review the provider of your service<!-- , Username: <i><%= @aj.asking_price.skill.user.username %></i> --></h4>
   <br><br>
+  
+  
+  <h2> Hi! How was working with <br> </h2>
+  <h3><%= @aj.asking_price.skill.user.name %></h3>
+  <br>
+  
+  <img src="<%=image_path "bearded-man.jpg"%>"  width=60 height=80>
 
 
-<%= form_tag(review_update_provider_path, :method => "post") do %>
+<%= form_tag(review_update_provider_path, :method => "post") class="form-group" do %>
   <%= label_tag(:review, "Review:") %>
   <%= text_field_tag(:review) %><br>
   <%= label_tag(:rating, "Rating (From 1 to 5):") %>
-  <%= text_field_tag(:rating) %><br>
+  <%= number_field_tag :rating, 4, within: 1...5 %><br>
   <%= submit_tag("Submit Review") %>
 <% end %>
 
