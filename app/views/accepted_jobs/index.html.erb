@@ -103,7 +103,7 @@
           <!-- <td><p><%# (accepted_job.buyer_rating == nil) ? "Not Completed" : "Completed"   %></p></td> -->
           <td><p><%= link_to 'View Job', accepted_job, class: "btn btn-info" %></p></td>
           <% if (accepted_job.completed? == true) & (accepted_job.buyer_rating == nil) & (accepted_job.buyer_review == nil or accepted_job.buyer_review == "") %>
-            <td><p><%= link_to "Review Your Service Provider", review_provider_path(accepted_job) %></p></td>
+            <td><p><%= link_to "Review Your Service Provider", review_client_path(accepted_job) %></p></td>
           <% end %>
           <% if current_user.role == "admin" %>
             <td><%= link_to 'View Job', accepted_job, class: "btn btn-success" %></td>
