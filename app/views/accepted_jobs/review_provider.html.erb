@@ -1,21 +1,31 @@
-<center>
-  <h4>Please review the provider of your service<!-- , Username: <i><%= @aj.asking_price.skill.user.username %></i> --></h4>
-  <br><br>
-  
-  
-  <h2> Hi! How was working with <br> </h2>
-  <h3><%= @aj.asking_price.skill.user.name %></h3>
-  <br>
-  
-  <img src="<%=image_path "bearded-man.jpg"%>"  width=60 height=80>
+
+<div class="row">
+<div class="col-md-4 col-md-offset-4">
+  <center>
+    <h2> Hi! How was working with <br> </h2>
+    <h3><%= @aj.asking_price.skill.user.name %></h3>
+    
+    <img src="<%=image_path "bearded-man.jpg"%>"  width=100 height=120>
+    <br>
+  </center>
+
+  <%= form_tag(review_update_provider_path, :method => "post") do %>
+  <div class="form-group"> 
+      <%= label_tag(:review, "Review") %>
+      <%= text_area_tag :review, nil, rows: 5, cols: 25, class:"form-control"  %><br>
+  </div>
+
+  <div class="form-group"> 
+      <%= label_tag(:rating, "Rating (From 1 to 5)" ) %>
+      <%= number_field_tag :rating, 4, within: 1...6 , class:"form-control" %><br>
+  </div>
 
 
-<%= form_tag(review_update_provider_path, :method => "post") class="form-group" do %>
-  <%= label_tag(:review, "Review:") %>
-  <%= text_field_tag(:review) %><br>
-  <%= label_tag(:rating, "Rating (From 1 to 5):") %>
-  <%= number_field_tag :rating, 4, within: 1...5 %><br>
-  <%= submit_tag("Submit Review") %>
+  <%= submit_tag("Submit Review", :class=>"form-control") %>
+  <br><br><br>
 <% end %>
 
-</center>
+  
+</div>
+</div>
+
