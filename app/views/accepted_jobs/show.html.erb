@@ -3,40 +3,84 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <h1><b>Job Posting</b>  <%= @accepted_job.job_posting_id %></h1>
+  <h1><b>Job:</b>  <%= @accepted_job.job_posting.job_name %></h1>
 </p>
 
 <p>
-  <strong>Asking price:</strong>
-  <%= @accepted_job.asking_price_id %>
+  <strong>Job Description:</strong>
+  <%= @accepted_job.job_posting.description %>
+</p>
+
+<p>
+  <strong>Skills Required:</strong>
+  <%= @accepted_job.job_posting.skills_required %>
+</p>
+
+<p>
+  <strong>Estimated Time (for completion):</strong>
+  <%= @accepted_job.job_posting.estimated_time %>
+</p>
+
+<p>
+  <strong>Agreed Price:</strong>
+  <%= "$" + @accepted_job.asking_price.price.to_s %>
+</p>
+
+<p>
+  <strong>Agreed Quantity:</strong>
+  <%= @accepted_job.asking_price.quantity %>
 </p>
 
 <p>
   <strong>Completed:</strong>
-  <%= @accepted_job.completed? %>
+  <%= @accepted_job.completed? ? "Yes" : "No" %>
+</p>
+
+<% if not(@accepted_job.seller_review.nil?) %>
+  <p>
+    <strong>Seller Review:</strong>
+    <%= @accepted_job.seller_review %>
+  </p>
+<% end %>
+
+<% if not(@accepted_job.seller_rating.nil?) %>
+  <p>
+    <strong>Seller rating:</strong>
+    <%= @accepted_job.seller_rating.to_f %>
+  </p>
+<% end %>
+
+<% if not(@accepted_job.buyer_review.nil?) %>
+  <p>
+    <strong>Buyer Review:</strong>
+    <%= @accepted_job.buyer_review %>
+  </p>
+<% end %>
+
+<% if not(@accepted_job.buyer_rating.nil?) %>
+  <p>
+    <strong>Buyer rating:</strong>
+    <%= @accepted_job.buyer_rating.to_f %>
+  </p>
+<% end %>
+
+<p>
+  <strong>Buyer Contact Information:</strong>
+  <% buyer = @accepted_job.job_posting.user %><br>
+  <%= "Name: " + buyer.first_name + " " + buyer.last_name %><br>
+  <%= "Phone: " + buyer.phone.to_s %><br>
+  <%= "Email: " + buyer.email.to_s %>
 </p>
 
 <p>
-  <strong>Seller review:</strong>
-  <%= @accepted_job.seller_review %>
+  <strong>Seller Contact Information:</strong>
+  <% seller = @accepted_job.asking_price.skill.user %><br>
+  <%= "Name: " + seller.first_name + " " + seller.last_name %><br>
+  <%= "Phone: " + seller.phone.to_s %><br>
+  <%= "Email: " + seller.email.to_s %>
 </p>
 
-<p>
-  <strong>Buyer review:</strong>
-  <%= @accepted_job.buyer_review %>
-</p>
 
-<p>
-  <strong>Seller rating:</strong>
-  <%= @accepted_job.seller_rating %>
-</p>
-
-<p>
-  <strong>Buyer rating:</strong>
-  <%= @accepted_job.buyer_rating %>
-</p>
-
-<%= link_to 'Edit', edit_accepted_job_path(@accepted_job), class: "btn btn-warning" %> |
 <%= link_to 'Back', accepted_jobs_path, class: "btn btn-info" %>
 </center>
 </div>
