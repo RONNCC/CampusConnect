@@ -93,7 +93,7 @@
           <td><p><%= accepted_job.job_posting.job_name %></p></td>
           <td><p><%= AskingPrice.find(accepted_job.asking_price_id).skill.skill.to_s %></p></td>
           <td><p><%="$" + AskingPrice.find(accepted_job.asking_price_id).price.to_s %></p></td>
-          <td><p><%= accepted_job.completed? ? "Yes" : accepted_job.buyer_completed? ? 'Waiting on Seller' : link_to("Mark as Completed",seller_complete_path(accepted_job)) %></p></td>
+          <td><p><%= accepted_job.completed? ? "Yes" : accepted_job.seller_completed? ? 'Waiting on Buyer' : link_to("Mark as Completed",seller_complete_path(accepted_job)) %></p></td>
           <td><p><%= (accepted_job.seller_review == nil or accepted_job.seller_review == "" or (accepted_job.seller_rating == nil)) ? "Not Completed" : "Completed" %></p></td>
           <td><p><%= (accepted_job.buyer_review == nil or accepted_job.buyer_review == "" or (accepted_job.buyer_rating == nil)) ? "Not Completed" : "Completed"%></p></td>
           <!-- <td><p><%# (accepted_job.seller_rating == nil) ? "Not Completed" : "Completed" %></p></td> -->
