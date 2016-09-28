@@ -145,6 +145,37 @@ class AcceptedJobsController < ApplicationController
     @active_jobs = active_buy + active_sell
   end
 
+  def buyer_complete
+    aj = AcceptedJob.find(params[:aj_id])
+    aj.buyer_completed = true
+    
+    respond_to do |format|
+      if aj.save
+        format.html { redirect_to accepted_jobs_path, notice: 'Thank you for marking the job as completed' }
+        format.json { render :show, status: :created, location: @accepted_job }
+      else
+        format.html { render :new }
+        format.json { render json: @accepted_job.errors, status: :unprocessable_entity }
+      end
+    end
+
+  end
+
+  def seller_complete
+    aj = AcceptedJob.find(params[:aj_id])
+    aj.seller_completed = true
+    
+    respond_to do |format|
+      if aj.save
+        format.html { redirect_to accepted_jobs_path, notice: 'Thank you for marking the job as completed' }
+        format.json { render :show, status: :created, location: @accepted_job }
+      else
+        format.html { render :new }
+        format.json { render json: @accepted_job.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_accepted_job
