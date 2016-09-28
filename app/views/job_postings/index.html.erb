@@ -79,8 +79,9 @@
           <td><p><%= job_posting.description %></p></td>
           <td><p><%= job_posting.skills_required %></p></td>
           <td><p><%= job_posting.estimated_time %></p></td>
-          <td><%= link_to 'View Job Posting', job_posting, class: "btn btn-success" %></td>
           <% if current_user.role == "admin" %>
+          <td><%= link_to 'View Job Posting', job_posting, class: "btn btn-success" %></td>
+
           <td><%= link_to 'Edit', edit_job_posting_path(job_posting), class: "btn btn-warning" %></td>
           <td><%= link_to 'Delete', job_posting, class: "btn btn-danger", method: :delete, data: { confirm: 'Are you sure you want to delete this job posting?' } %></td>
           <% end %>
