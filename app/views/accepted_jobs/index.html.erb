@@ -35,6 +35,7 @@
         <th><p>Completed</p></th>
         <th><p>Seller Review/Rating</p></th>
         <th><p>Buyer Review/Rating</p></th>
+        <th><p>Job Details</p></th>
         <th><p>Review</p></th>
         <!-- <th><p>Seller rating</p></th> -->
         <!-- <th><p>Buyer rating</p></th> -->
@@ -53,6 +54,7 @@
           <td><p><%= (accepted_job.buyer_review == nil or accepted_job.buyer_review == "" or (accepted_job.buyer_rating == nil)) ? "Not Completed" : "Completed"%></p></td>
           <!-- <td><p><%# (accepted_job.seller_rating == nil) ? "Not Completed" : "Completed" %></p></td> -->
           <!-- <td><p><%# (accepted_job.buyer_rating == nil) ? "Not Completed" : "Completed"   %></p></td> -->
+          <td><p><%= link_to 'View Job', accepted_job, class: "btn btn-info" %></p></td>
           <% if (accepted_job.completed? == true) & (accepted_job.seller_rating == nil) & (accepted_job.seller_review == nil or accepted_job.seller_review == "") %>
             <td><p><%= link_to "Review Your Service Provider", review_provider_path(accepted_job) %></p></td>
           <% end %>
@@ -80,6 +82,7 @@
         <th><p>Completed</p></th>
         <th><p>Seller Review/Rating</p></th>
         <th><p>Buyer Review/Rating</p></th>
+        <th><p>Job Details</p></th>
         <th><p>Review</p></th>
         <!-- <th><p>Seller rating</p></th> -->
         <!-- <th><p>Buyer rating</p></th> -->
@@ -98,6 +101,7 @@
           <td><p><%= (accepted_job.buyer_review == nil or accepted_job.buyer_review == "" or (accepted_job.buyer_rating == nil)) ? "Not Completed" : "Completed"%></p></td>
           <!-- <td><p><%# (accepted_job.seller_rating == nil) ? "Not Completed" : "Completed" %></p></td> -->
           <!-- <td><p><%# (accepted_job.buyer_rating == nil) ? "Not Completed" : "Completed"   %></p></td> -->
+          <td><p><%= link_to 'View Job', accepted_job, class: "btn btn-info" %></p></td>
           <% if (accepted_job.completed? == true) & (accepted_job.seller_rating == nil) & (accepted_job.seller_review == nil or accepted_job.seller_review == "") %>
             <td><p><%= link_to "Review Your Service Provider", review_provider_path(accepted_job) %></p></td>
           <% end %>
