@@ -72,9 +72,9 @@
           <p>
   <strong>Seller Contact Information:</strong>
   <% seller = @accepted_job.asking_price.skill.user %><br>
-  <%= "Name: " + seller.first_name + " " + seller.last_name %><br>
-  <%= "Phone: " + seller.phone.to_s %><br>
-  <%= "Email: " + seller.email.to_s %>
+  Name:<br><%= seller.first_name + " " + seller.last_name %><br>
+  Phone:<br><%= number_to_phone(seller.phone.to_s) %><br>
+  Email:<br><%= seller.email.to_s %>
 </p>
           </div>
         </div>
@@ -84,9 +84,9 @@
           <p>
             <strong>Buyer Contact Information:</strong>
             <% buyer = @accepted_job.job_posting.user %><br>
-            <%= "Name: " + buyer.first_name + " " + buyer.last_name %><br>
-            <%= "Phone: " + buyer.phone.to_s %><br>
-            <%= "Email: " + buyer.email.to_s %>
+            Name:<br><%= buyer.first_name + " " + buyer.last_name %><br>
+            Phone:<br><%= number_to_phone(buyer.phone.to_s) %><br>
+            Email:<br><%= buyer.email.to_s %>
           </p>
         </div>
       </div>
