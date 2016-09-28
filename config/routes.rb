@@ -31,8 +31,8 @@ Rails.application.routes.draw do
   get 'review_client/:aj_id' => 'accepted_jobs#review_client', as: :review_client
   post 'review_update_client/:aj_id/' => 'accepted_jobs#review_update_client', as: :review_update_client
 
-  get 'buyer_complete' => 'accepted_jobs#buyer_complete', as: :buyer_complete
-  get 'seller_complete' => 'accepted_jobs#seller_complete', as: :seller_complete
+  get 'buyer_complete/:aj_id' => 'accepted_jobs#buyer_complete', as: :buyer_complete
+  get 'seller_complete/:aj_id' => 'accepted_jobs#seller_complete', as: :seller_complete
 
   get 'completed_jobs' => 'accepted_jobs#completed_jobs', as: :completed_jobs
   get 'active_jobs' => 'accepted_jobs#active_jobs', as: :active_jobs
