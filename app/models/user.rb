@@ -62,16 +62,28 @@ class User < ActiveRecord::Base
   end
 
   def average_seller_rating
-    jps = self.job_postings
-    sell_rats = []
-    jps.each do |jp|
-      if (not(jp.accepted_job.nil?) and not(jp.accepted_job.seller_rating.nil?))
-        sell_rats.append(jp.accepted_job.seller_rating)
-      end
-    end
-    res = sell_rats.inject(:+).to_f / sell_rats.length
-    res.nan? ? "No Ratings Yet" : res
+    jps = self.seller_accepted_jobs.map{|j| j.seller_rating}
+    # sell_rats = []
+    # jps.each do |jp|
+      # if (not(jp.accepted_job.nil?) and not(jp.accepted_job.seller_rating.nil?))
+    #     sell_rats.append(jp.accepted_job.seller_rating)
+    #   end
+    # end
+    jps = jps.inject(:+).to_f / jps.length
+    jps.nan? ? "No Ratings Yet" : jps
   end
+
+  # def average_seller_rating
+  #   jps = self.buyer_accepted_jobs
+  #   sell_rats = []
+  #   jps.each do |jp|
+  #     if (not(jp.accepted_job.nil?) and not(jp.accepted_job.seller_rating.nil?))
+  #       sell_rats.append(jp.accepted_job.seller_rating)
+  #     end
+  #   end
+  #   res = sell_rats.inject(:+).to_f / sell_rats.length
+  #   res.nan? ? "No Ratings Yet" : res
+  # end
 
   def seller_accepted_jobs
     self.skills.to_a.map{|s| s.asking_prices.to_a.map{|ap| ap.accepted_jobs.to_a}}.flatten.compact
