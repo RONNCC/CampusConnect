@@ -24,25 +24,9 @@
       <%= number_field_tag :rating, 4, within: 1...6 , class:"form-control" %><br>
   </div>
 
-<<<<<<< HEAD
 
   <%= submit_tag("Submit Review", :class=>"form-control") %>
   <br><br><br>
-=======
-  <h2> Hi! How was working with <br> </h2>
-  <h3><%= @aj.asking_price.skill.user.name %></h3>
-  <br>
-
-  <img src="<%=image_path "bearded-man.jpg"%>"  width=60 height=80>
-
-
-<%= form_tag(review_update_provider_path, :method => "post") class="form-group" do %>
-  <%= label_tag(:review, "Review:") %>
-  <%= text_field_tag(:review) %><br>
-  <%= label_tag(:rating, "Rating (From 1 to 5):") %>
-  <%= number_field_tag :rating, 4, within: 1...5 %><br>
-  <%= submit_tag("Submit Review") %>
->>>>>>> 3958bc62fdbad0349532639e841be8dbfcc88b9e
 <% end %>
 
   
